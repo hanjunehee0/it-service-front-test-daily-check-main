@@ -1,4 +1,4 @@
-import { InputRadio } from '@/types/components/inputs.ts'
+import { InputRadio } from '@/types/components/common/inputs.ts'
 
 export const InputRadioComp = ({ name, error, style, register, items }: InputRadio) => {
     return (

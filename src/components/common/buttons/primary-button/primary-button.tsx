@@ -1,4 +1,4 @@
-import { ButtonTag, StyleProps } from '@/types/components/button.ts'
+import { ButtonTag, StyleProps } from '@/types/components/common/button.ts'
 import { handleButtonStyleProps } from '@/utils/button-props.ts'
 
 export const PrimaryButton = ({

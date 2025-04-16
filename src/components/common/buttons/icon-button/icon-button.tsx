@@ -1,4 +1,4 @@
-import { IconButtons } from '@/types/components/button.ts'
+import { IconButtons } from '@/types/components/common/button.ts'
 import { handleIconBtnPosition } from '@/utils/button-props.ts'
 
 export const IconButton = ({ type, icon, onClick, label, style, iconPosition }: IconButtons) => {

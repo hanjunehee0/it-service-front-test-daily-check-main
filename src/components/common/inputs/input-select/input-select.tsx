@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { SelectTag } from '@/types/components/select.ts'
+import { SelectTag } from '@/types/components/common/select.ts'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 
 export const InputSelect = ({

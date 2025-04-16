@@ -15,7 +15,7 @@ export interface AnchorTag {
 export interface ButtonTag {
     onClick?: (p: number) => void | undefined
     label: string | ''
-    type: ButtonType
+    type?: ButtonType | ''
     isActive?: boolean
 }
 // Style Interface

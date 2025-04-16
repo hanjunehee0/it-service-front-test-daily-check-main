@@ -2,7 +2,7 @@ import { forwardRef, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import { CustomInputProps } from '@/types/components/input-date-picker.ts'
+import { CustomInputProps } from '@/types/components/common/input-date-picker.ts'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 
 export const InputDateRange = () => {
