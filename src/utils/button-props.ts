@@ -4,7 +4,7 @@ import type {
     Level,
     StyleProps,
     Variant,
-} from '@/types/components/button.ts'
+} from '@/types/components/common/button.ts'
 
 export const handleButtonStyleProps = ({
     variant,

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router'
 
-import { AnchorTag, StyleProps } from '@/types/components/button.ts'
+import { AnchorTag, StyleProps } from '@/types/components/common/button.ts'
 import { handleButtonStyleProps } from '@/utils/button-props.ts'
 
 export const Anchor = ({

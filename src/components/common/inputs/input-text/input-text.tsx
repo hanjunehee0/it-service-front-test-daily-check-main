@@ -1,4 +1,4 @@
-import { InputText } from '@/types/components/inputs.ts'
+import { InputText } from '@/types/components/common/inputs.ts'
 
 export const InputTextComp = ({
     placeHolder,
