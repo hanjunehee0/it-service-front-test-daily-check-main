@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 import { ButtonTag, StyleProps } from '@/types/components/common/button.ts'
 
 export type Tabs = string | 'flex gap-2 bg-[#003CFF1A] p-[2px] rounded-[2px]'
@@ -42,4 +44,11 @@ export interface OriginData {
         getNPost: number
         failed: number
     }
+}
+
+export interface AccordionProps {
+    title: string
+    icon?: ReactNode
+    children: ReactNode
+    defaultOpen?: boolean
 }
