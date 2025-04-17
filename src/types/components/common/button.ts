@@ -30,6 +30,8 @@ export interface IconButtons {
     type?: ButtonType
     icon: React.ReactNode
     onClick?: () => void
+    title?: string | ''
+    titleStyle?: string | ''
     label?: string | ''
     style?: string
     iconPosition: IconBtnPosition | 'full'

@@ -1,7 +1,9 @@
 import { blinkCharging, chargePoint } from '@/api/mock/graph-api-data.ts'
+import { Accordion } from '@/components/dashboard/accordion/accordion.tsx'
 import { DataCard } from '@/components/dashboard/count-card/count-card.tsx'
 import { ReturnSumData } from '@/types/components/dashboard/dashboard.ts'
 import { getCountCards } from '@/utils/dashboard/get-count-cards.ts'
+import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -24,7 +26,14 @@ export const ViewPage = () => {
                     ))}
                 </Swiper>
             </article>
-            <article className="mt-[12px] bg-[#ffffff] p-[12px]"></article>
+            <article className="flex mt-[12px] bg-[#ffffff] p-[12px]">
+                <div className="w-[50%] border-b-amber-950 min-h-[100px]">
+                    <Accordion title={'Charge Point'} icon={<AssessmentOutlinedIcon />}>
+                        <div>etetdcdeget</div>
+                    </Accordion>
+                </div>
+                <div className="w-[50%] border-b-amber-950 min-h-[100px]"></div>
+            </article>
         </>
     )
 }
