@@ -1,12 +1,13 @@
-import { FieldError, UseFormRegisterReturn } from 'react-hook-form'
+import { FieldError, UseFormRegister } from 'react-hook-form'
 
 export interface InputText {
+    name: string
     placeHolder?: string | ''
-    defaultValue?: string | ''
+    defaultValue?: string
     error?: FieldError | ''
     style?: string | ''
     label?: string | ''
-    register?: UseFormRegisterReturn<string>
+    register?: ReturnType<UseFormRegister<never>>
 }
 
 export interface InputRadio {
@@ -17,5 +18,5 @@ export interface InputRadio {
         value: string
         label: string
     }[]
-    register?: UseFormRegisterReturn
+    register?: ReturnType<UseFormRegister<never>>
 }

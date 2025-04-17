@@ -12,13 +12,18 @@ export const InputSelect = ({
     labelStyles,
 }: SelectTag) => {
     const handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        onChanges(Number(e?.target?.value))
+        onChanges(e?.target?.value) // 선택된 값 전달
     }
 
     return (
         <label className={`${labelStyles}` + ' relative overflow-visible'}>
             {labelValue && <span>{labelValue}</span>}
-            <select name={name} className={`${styles} z-10 block`} onChange={handleChangeSelect}>
+            <select
+                name={name}
+                className={`${styles} z-10 block`}
+                onChange={handleChangeSelect}
+                defaultValue={options[0]?.value}
+            >
                 {options.map((item, i) => (
                     <option value={item.value} key={`${item.label}-${i}`}>
                         {item.label}

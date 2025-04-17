@@ -24,3 +24,19 @@ body {
         height: 100%;
     }
 }
+/* react-datepicker ui 개선 css */
+/* time의 modal 호출 시 border 잘림 현상 개선 */
+.react-datepicker {
+    overflow: auto;
+}
+.react-datepicker-wrapper {
+    height: max-content;
+}
+/* scrollbar width로 인해 레이아웃 깨짐 현상 개선 */
+.react-datepicker__time-list {
+    -ms-overflow-style: none; /* IE */
+    scrollbar-width: none; /* Firefox */
+}
+.react-datepicker__time-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}

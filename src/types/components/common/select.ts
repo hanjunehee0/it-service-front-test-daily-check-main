@@ -7,6 +7,6 @@ export interface SelectTag {
     labelStyles?: string | ''
     options: Options[]
     styles?: string
-    onChanges: (value?: number) => void
+    onChanges: (value?: string) => void
     name?: string
 }

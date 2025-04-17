@@ -1,6 +1,7 @@
 import { InputText } from '@/types/components/common/inputs.ts'
 
 export const InputTextComp = ({
+    name,
     placeHolder,
     defaultValue,
     error,
@@ -14,6 +15,7 @@ export const InputTextComp = ({
                 {label && <span className="sr-only">{label}</span>}
                 <input
                     type="text"
+                    name={name}
                     placeholder={placeHolder}
                     defaultValue={defaultValue}
                     className={style}
