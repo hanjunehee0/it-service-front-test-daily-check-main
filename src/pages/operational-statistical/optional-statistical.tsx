@@ -133,11 +133,8 @@ export const OperationalStatistical = () => {
                     />
                 </Form>
             </section>
-            <section className="mt-[12px] bg-[#ffffff] p-[12px]"></section>
-            <article className="mt-[12px] bg-[#ffffff] p-[12px]">
-                {activeEl === 0 && <WritePage />}
-                {activeEl === 1 && <ViewPage />}
-            </article>
+            {activeEl === 0 && <WritePage />}
+            {activeEl === 1 && <ViewPage />}
         </div>
     )
 }
