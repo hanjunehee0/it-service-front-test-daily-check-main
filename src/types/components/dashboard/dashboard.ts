@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 import { ButtonTag, StyleProps } from '@/types/components/common/button.ts'
+import { Payload } from 'recharts/types/component/DefaultLegendContent'
 
 export type Tabs = string | 'flex gap-2 bg-[#003CFF1A] p-[2px] rounded-[2px]'
 export interface TabMenuItem {
@@ -46,9 +47,20 @@ export interface OriginData {
     }
 }
 
+export interface BarData {
+    regDate: string
+    type: string
+    put: number
+    patch: number
+    delete: number
+    getNPost: number
+}
+
 export interface AccordionProps {
     title: string
     icon?: ReactNode
     children: ReactNode
     defaultOpen?: boolean
 }
+
+export type TypePayload = Payload[]

@@ -1,4 +1,9 @@
-import { CombinedData, OriginData, ReturnSumData } from '@/types/components/dashboard/dashboard.ts'
+import {
+    BarData,
+    CombinedData,
+    OriginData,
+    ReturnSumData,
+} from '@/types/components/dashboard/dashboard.ts'
 
 export const getCountCards = ({
     chargePoint,
@@ -39,4 +44,24 @@ export const getCountCards = ({
         success: values.stationSuccess + values.tariffSuccess,
         failed: values.stationFailed + values.tariffFailed,
     }))
+}
+
+export const getBarCharts = (data: OriginData[]) => {
+    const transData: BarData[] = []
+    data.forEach((item) => {
+        const { regDate, station, tariff } = item
+
+        transData.push({
+            regDate,
+            type: 'station',
+            ...station,
+        })
+        transData.push({
+            regDate,
+            type: 'tariff',
+            ...tariff,
+        })
+        console.log(transData)
+    })
+    return transData
 }
