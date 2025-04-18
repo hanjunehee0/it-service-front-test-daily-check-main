@@ -1,5 +1,6 @@
 import { ButtonTag } from '@/types/components/common/button.ts'
 import { Options } from '@/types/components/common/select.ts'
+import { TableBodyStyle, TableHeader } from '@/types/components/dashboard/dashboard.ts'
 
 export const TabMenus: ButtonTag[] = [
     {
@@ -84,4 +85,27 @@ export const searchOptions = {
             label: 'KCT3',
         },
     ],
+}
+
+export const dataThead: TableHeader = {
+    tableStyle:
+        'w-full table-fixed border-spacing-0 text-sm text-center border-t-[#000000] border-t-[2px]',
+    rowStyle: '',
+    colWidths: ['13.2353%', '14.7059%', '14.7059%', '14.7059%', '14.7059%', '14.7059%', '12.2352%'],
+    thStyle:
+        'px-[12px] py-[6px] bg-[#F2F2F2] align-top text-left text-[#0C0C0C] text-[14px] font-bold border border-[#C2C2C2]',
+    rows: [
+        [
+            { th: 'Date', rSpan: 2 },
+            { th: 'Station', cSpan: 3 },
+            { th: 'Tariff', cSpan: 2 },
+            { th: '실패', rSpan: 2 },
+        ],
+        [{ th: 'PUT' }, { th: 'DELETE' }, { th: 'PATCH' }, { th: 'PUT' }, { th: 'DELETE' }],
+    ],
+}
+
+export const tBodyStyle: TableBodyStyle = {
+    tBodyStyle: '',
+    tdStyle: 'px-[12px] py-[6px] border border-[#cccccc] text-[12px]',
 }

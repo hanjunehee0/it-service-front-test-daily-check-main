@@ -3,6 +3,7 @@ import {
     CombinedData,
     OriginData,
     ReturnSumData,
+    TableBodyRows,
 } from '@/types/components/dashboard/dashboard.ts'
 
 export const getCountCards = ({
@@ -61,7 +62,25 @@ export const getBarCharts = (data: OriginData[]) => {
             type: 'tariff',
             ...tariff,
         })
-        console.log(transData)
+        // console.log(transData)
+    })
+    return transData
+}
+
+export const getTableData = (data: OriginData[]) => {
+    const transData: TableBodyRows = []
+    console.log('transData: ', transData)
+    data.forEach((item) => {
+        const { regDate, station, tariff } = item
+        transData.push({
+            regDate,
+            sPut: station.put,
+            sDelete: station.delete,
+            sPatch: station.patch,
+            tPut: tariff.put,
+            tDelete: tariff.delete,
+            failed: station.failed + tariff.failed,
+        })
     })
     return transData
 }

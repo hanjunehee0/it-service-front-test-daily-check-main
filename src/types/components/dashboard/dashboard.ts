@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 
 import { ButtonTag, StyleProps } from '@/types/components/common/button.ts'
-import { Payload } from 'recharts/types/component/DefaultLegendContent'
 
 export type Tabs = string | 'flex gap-2 bg-[#003CFF1A] p-[2px] rounded-[2px]'
 export interface TabMenuItem {
@@ -63,4 +62,31 @@ export interface AccordionProps {
     defaultOpen?: boolean
 }
 
-export type TypePayload = Payload[]
+export interface TableHeader {
+    tableStyle: string
+    rowStyle: string
+    colWidths: string[]
+    thStyle: string
+    rows: Array<
+        Array<{
+            th: string
+            rSpan?: number
+            cSpan?: number
+        }>
+    >
+}
+
+export interface TableBodyStyle {
+    tBodyStyle?: string
+    tdStyle?: string
+}
+export interface TableBodyRow {
+    regDate: string
+    sPut: number
+    sDelete: number
+    sPatch: number
+    tPut: number
+    tDelete: number
+    failed: number
+}
+export type TableBodyRows = TableBodyRow[]
