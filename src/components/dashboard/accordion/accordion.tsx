@@ -36,7 +36,7 @@ export const Accordion = ({ title, icon, children, defaultOpen = true }: Accordi
             </div>
             <div
                 className={`
-                  overflow-hidden border-b-amber-950 transition-all duration-500 ease-in-out
+                  overflow-hidden transition-all duration-500 ease-in-out
                   ${isShow ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}
                 `}
             >
