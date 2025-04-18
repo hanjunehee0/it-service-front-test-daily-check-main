@@ -81,7 +81,7 @@ export const OperationalStatistical = () => {
                     }
                 />
             </section>
-            <section className="mt-[12px] px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
+            <section className="isolate mt-[12px] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
                 <Form
                     schema={SearchSchema}
                     defaultValues={{
