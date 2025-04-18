@@ -25,8 +25,8 @@ export const Accordion = ({ title, icon, children, defaultOpen = true }: Accordi
                 />
                 <KeyboardArrowDownOutlinedIcon
                     className={`
-                        absolute right-0 top-[50%] mt-[-9px] ml-auto
-                        -translate-y-1/2 text-[#636363] text-[18px]
+                        absolute right-0 top-[50%] mt-[-12px] ml-auto
+                         text-[#636363] text-[18px]
                       `}
                     style={{
                         transform: !isShow ? 'rotate(180deg)' : 'rotate(360deg)',
