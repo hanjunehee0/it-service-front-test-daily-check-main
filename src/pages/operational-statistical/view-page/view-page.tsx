@@ -26,10 +26,19 @@ export const ViewPage = () => {
                     ))}
                 </Swiper>
             </article>
-            <article className="flex mt-[12px] bg-[#ffffff] p-[12px]">
+            <article className="flex mt-[12px] bg-[#ffffff] p-[12px] min-h-[450px]">
                 <div className="w-[50%] border-b-amber-950 min-h-[100px]">
                     <Accordion title={'Charge Point'} icon={<AssessmentOutlinedIcon />}>
-                        <div>etetdcdeget</div>
+                        <div>
+                            e<br />t<br />
+                            etd
+                            <br />c<br />
+                            deg <br />
+                            ㅇㅇ
+                            <br />
+                            ㅇㄹ
+                            <br /> ㅁㄹㅎ ㅁㅇㄹㅎ et
+                        </div>
                     </Accordion>
                 </div>
                 <div className="w-[50%] border-b-amber-950 min-h-[100px]"></div>
