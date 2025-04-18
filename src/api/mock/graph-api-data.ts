@@ -2,10 +2,10 @@ export const chargePoint = [
     {
         regDate: '2025-05-01',
         station: {
-            put: 234567,
-            patch: 189234,
-            delete: 29485,
-            getNPost: 172938,
+            put: 184567,
+            patch: 139234,
+            delete: 24485,
+            getNPost: 132938,
             failed: 0,
         },
         tariff: {
@@ -53,10 +53,10 @@ export const chargePoint = [
     {
         regDate: '2025-05-04',
         station: {
-            put: 184738,
-            patch: 274839,
-            delete: 29384,
-            getNPost: 384920,
+            put: 89738,
+            patch: 154839,
+            delete: 14384,
+            getNPost: 234920,
             failed: 0,
         },
         tariff: {
