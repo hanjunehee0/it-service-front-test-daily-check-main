@@ -24,18 +24,21 @@ export const Accordion = ({ title, icon, children, defaultOpen = true }: Accordi
                     title={title}
                 />
                 <KeyboardArrowDownOutlinedIcon
-                    className={`${!isShow ? 'rotate-180' : ''} 'transition-transform duration-300 absolute right-0 top-[50%] mt-[-9px]`}
-                    sx={{
-                        marginLeft: 'auto',
-                        fontSize: '18px',
-                        color: '#636363',
+                    className={`
+                        absolute right-0 top-[50%] mt-[-9px] ml-auto
+                        -translate-y-1/2 text-[#636363] text-[18px]
+                      `}
+                    style={{
+                        transform: !isShow ? 'rotate(180deg)' : 'rotate(360deg)',
+                        transition: 'transform 500ms ease-in-out',
                     }}
                 />
             </div>
             <div
-                className={
-                    isShow ? 'h-full border-b-amber-950' : 'h-0 border-b-amber-950 overflow-hidden'
-                }
+                className={`
+                  overflow-hidden border-b-amber-950 transition-all duration-500 ease-in-out
+                  ${isShow ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}
+                `}
             >
                 {children}
             </div>
