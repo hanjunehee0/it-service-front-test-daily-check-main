@@ -32,26 +32,21 @@ export const OperationalStatistical = () => {
         console.log('change-select', p)
     }
 
-    const { setParams, refetch } = useSearchQuery({
+    const { setParams } = useSearchQuery({
         dateRange: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
         timeFrom: new Date(),
         timeTo: new Date(),
         kct: '',
         na: '',
     })
-    const handleSubmit = async (data: SearchSchemaType) => {
-        try {
-            setParams({
-                dateRange: data.dateRange,
-                timeFrom: data.timeFrom,
-                timeTo: data.timeTo,
-                kct: data.kct,
-                na: data.na,
-            })
-            await refetch()
-        } catch (error) {
-            console.log(error)
-        }
+    const handleSubmit = (data: SearchSchemaType) => {
+        setParams({
+            dateRange: data.dateRange,
+            timeFrom: data.timeFrom,
+            timeTo: data.timeTo,
+            kct: data.kct,
+            na: data.na,
+        })
     }
 
     useEffect(() => {
