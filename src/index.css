@@ -67,3 +67,55 @@ body {
     scrollbar-width: thin;
     scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
 }
+
+/* Loading Component */
+.loading-wrap {
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0, 0.34);
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+}
+
+.loading-wrap .loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-wrap .loading-text {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: clipText 3s ease infinite;
+}
+
+@keyframes clipText {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0% 0 0);
+    }
+}
