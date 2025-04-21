@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
 
-import { HeaderComponent } from '@/layouts/header-component/header-compoenent.tsx'
+import { HeaderComponent } from '@/layouts/header-component'
 
 export const MainLayout = () => {
     return (

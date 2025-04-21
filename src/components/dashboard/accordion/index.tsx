@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { IconButton } from '@/components/common/buttons/icon-button/icon-button.tsx'
+import { IconButton } from '@/components/common/buttons/icon-button'
 import { AccordionProps } from '@/types/components/dashboard/dashboard.ts'
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined'
 

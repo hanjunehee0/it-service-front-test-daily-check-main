@@ -1,6 +1,6 @@
-import { HeaderNav } from '@/layouts/header-component/header-items/header-nav.tsx'
-import { HeaderTitle } from '@/layouts/header-component/header-items/header-title.tsx'
-import { HeaderUtil } from '@/layouts/header-component/header-items/header-util.tsx'
+import { HeaderNav } from '@/layouts/header-component/header-nav'
+import { HeaderTitle } from '@/layouts/header-component/header-title'
+import { HeaderUtil } from '@/layouts/header-component/header-util'
 
 export const HeaderComponent = () => {
     return (

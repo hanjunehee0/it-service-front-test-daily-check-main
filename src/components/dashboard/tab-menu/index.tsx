@@ -1,4 +1,4 @@
-import { PrimaryButton } from '@/components/common/buttons/primary-button/primary-button.tsx'
+import { PrimaryButton } from '@/components/common/buttons/primary-button'
 import { TabMenuItem } from '@/types/components/dashboard/dashboard.ts'
 
 export const TabMenu = ({ tabs }: { tabs: TabMenuItem }) => {
