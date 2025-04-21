@@ -1,4 +1,4 @@
-import { PrimaryButton } from '@/components/common/buttons/primary-button'
+import { TabButton } from '@/components/common/buttons/tab-button/index.tsx'
 import { TabMenuItem } from '@/types/components/dashboard/dashboard.ts'
 
 export const TabMenu = ({ tabs }: { tabs: TabMenuItem }) => {
@@ -8,7 +8,7 @@ export const TabMenu = ({ tabs }: { tabs: TabMenuItem }) => {
         <ul className={tabStyle}>
             {tabs.dataProps.map((item, i) => (
                 <li key={`${item}-${i}`}>
-                    <PrimaryButton
+                    <TabButton
                         dataProps={item}
                         index={i}
                         styleProps={tabs.styleProps ? tabs.styleProps : undefined}

@@ -12,7 +12,7 @@ export interface AnchorTag {
     label: string
 }
 // Button
-export interface ButtonTag {
+export interface TabButtonTag {
     onClick?: (p: number) => void | undefined
     label: string | ''
     type?: ButtonType | ''
@@ -35,4 +35,11 @@ export interface IconButtons {
     label?: string | ''
     style?: string
     iconPosition: IconBtnPosition | 'full'
+}
+
+export interface PrimaryButtonTag {
+    onClick?: () => void
+    type: ButtonType
+    style: string
+    label: string
 }

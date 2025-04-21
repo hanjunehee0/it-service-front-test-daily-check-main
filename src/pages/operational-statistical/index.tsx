@@ -11,7 +11,7 @@ import { useSearchQuery } from '@/hooks/use-search-query.ts'
 import { ViewPage } from '@/pages/operational-statistical/view-page'
 import { WritePage } from '@/pages/operational-statistical/write-page'
 import { useTabStore } from '@/stores/use-tab-store.ts'
-import { ButtonTag } from '@/types/components/common/button.ts'
+import { TabButtonTag } from '@/types/components/common/button.ts'
 import { SearchSchema, SearchSchemaType } from '@/utils/schema/schema.ts'
 import Refresh from '@mui/icons-material/Refresh'
 import Search from '@mui/icons-material/Search'
@@ -23,7 +23,7 @@ export const OperationalStatistical = () => {
             setActiveEl(p)
         }
     }
-    const tabMenuData: ButtonTag[] = TabMenus.map((item) => ({
+    const tabMenuData: TabButtonTag[] = TabMenus.map((item) => ({
         ...item,
         onClick: (p: number) => handleTabActive(p),
     }))
