@@ -1,9 +1,9 @@
 import { RouteObject, createBrowserRouter } from 'react-router'
 
-import { MainLayout } from '@/layouts/main-layout.tsx'
-import { DataIntegrity } from '@/pages/data-integrity/data-integrity.tsx'
-import { OperationalStatistical } from '@/pages/operational-statistical/optional-statistical.tsx'
-import { ResponseVisualization } from '@/pages/response-visualization/response-visualization.tsx'
+import { MainLayout } from '@/layouts/main-layout'
+import { DataIntegrity } from '@/pages/data-integrity'
+import { OperationalStatistical } from '@/pages/operational-statistical'
+import { ResponseVisualization } from '@/pages/response-visualization'
 
 const routes: RouteObject[] = [
     {
