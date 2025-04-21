@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 
-import { ButtonTag, StyleProps } from '@/types/components/common/button.ts'
+import { StyleProps, TabButtonTag } from '@/types/components/common/button.ts'
 
 export type Tabs = string | 'flex gap-2 bg-[#003CFF1A] p-[2px] rounded-[2px]'
 export interface TabMenuItem {
-    dataProps: ButtonTag[]
+    dataProps: TabButtonTag[]
     styleProps?: StyleProps
     TabStyle?: Tabs
 }

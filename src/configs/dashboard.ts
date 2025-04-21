@@ -1,8 +1,8 @@
-import { ButtonTag } from '@/types/components/common/button.ts'
+import { TabButtonTag } from '@/types/components/common/button.ts'
 import { Options } from '@/types/components/common/select.ts'
 import { TableBodyStyle, TableHeader } from '@/types/components/dashboard/dashboard.ts'
 
-export const TabMenus: ButtonTag[] = [
+export const TabMenus: TabButtonTag[] = [
     {
         onClick: undefined,
         label: '입력부',
