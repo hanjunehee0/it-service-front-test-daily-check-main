@@ -172,3 +172,23 @@ export const blinkCharging = [
         },
     },
 ]
+
+export const dummys = [
+    {
+        regDate: '2025-05-04',
+        station: {
+            put: 274839,
+            patch: 92834,
+            delete: 8392,
+            getNPost: 92834,
+            failed: 0,
+        },
+        tariff: {
+            put: 19283,
+            patch: 198273,
+            delete: 10293,
+            getNPost: 83921,
+            failed: 0,
+        },
+    },
+]
