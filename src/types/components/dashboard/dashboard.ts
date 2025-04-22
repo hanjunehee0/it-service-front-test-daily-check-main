@@ -44,6 +44,7 @@ export interface OriginData {
         getNPost: number
         failed: number
     }
+    setType?: 'chargePoint' | 'blinkCharging'
 }
 
 export interface BarData {

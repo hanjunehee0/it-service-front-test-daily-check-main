@@ -1,4 +1,3 @@
-import { blinkCharging, chargePoint } from '@/api/mock/graph-api-data.ts'
 import { TableComponent } from '@/components/common/table'
 import { Accordion } from '@/components/dashboard/accordion'
 import { BarChartComp } from '@/components/dashboard/charts/bar-chart'
@@ -7,12 +6,16 @@ import { dataThead, tBodyStyle } from '@/configs/dashboard.ts'
 import { ReturnSumData } from '@/types/components/dashboard/dashboard.ts'
 import { getBarCharts, getCountCards, getTableData } from '@/utils/dashboard/get-count-cards.ts'
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined'
+import { useDataStore } from '@/stores/use-data-store.ts'
+
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const ViewPage = () => {
-    const cloneBC: ReturnSumData[] = [...getCountCards({ blinkCharging, chargePoint })]
-    console.log('tete', cloneBC)
+
+    const { chargePointData, blinkChargingData } = useDataStore()
+    const cloneBC: ReturnSumData[] = [...getCountCards({ chargePointData, blinkChargingData })]
+    console.log('cloneBC: ', cloneBC)
     return (
         <>
             <article className="mt-[12px] bg-[#ffffff] p-[12px]">
@@ -33,12 +36,12 @@ export const ViewPage = () => {
                 <div className="w-[50%] min-h-[100px]">
                     <Accordion title={'Charge Point'} icon={<AssessmentOutlinedIcon />}>
                         <div className="mt-[24px] w-full aspect-[600/182]">
-                            <BarChartComp data={getBarCharts(chargePoint)} />
+                            <BarChartComp data={getBarCharts(chargePointData)} />
                         </div>
                         <div className="mt-16">
                             <TableComponent
                                 tHeader={dataThead}
-                                tBody={getTableData(chargePoint)}
+                                tBody={getTableData(chargePointData)}
                                 bodyStyle={tBodyStyle}
                             />
                         </div>
@@ -47,12 +50,12 @@ export const ViewPage = () => {
                 <div className="w-[50%]  min-h-[100px]">
                     <Accordion title={'Blink Charging'} icon={<AssessmentOutlinedIcon />}>
                         <div className="mt-[24px] w-full aspect-[600/182]">
-                            <BarChartComp data={getBarCharts(blinkCharging)} />
+                            <BarChartComp data={getBarCharts(blinkChargingData)} />
                         </div>
                         <div className="mt-16">
                             <TableComponent
                                 tHeader={dataThead}
-                                tBody={getTableData(blinkCharging)}
+                                tBody={getTableData(blinkChargingData)}
                                 bodyStyle={tBodyStyle}
                             />
                         </div>

@@ -2,11 +2,7 @@ import { z } from 'zod'
 
 export const writeValidation = z.object({
     regDate: z
-        .string()
-        .nullable()
-        .refine((date) => date !== null && !!Date.parse(date), {
-            message: '올바른 날짜를 선택해야 합니다.',
-        }),
+        .date(),
 
     station: z
         .object({
@@ -76,6 +72,7 @@ export const writeValidation = z.object({
         .enum(['chargePoint', 'blinkCharging'], { message: '유형을 선택해 주세요.' })
         .optional(),
 })
+
 
 export const searchFilter = z.object({
     filterSelect: z

@@ -70,64 +70,66 @@ export const OperationalStatistical = () => {
                 <InputSelect
                     options={topFilter}
                     onChanges={isSelectItem}
-                    labelStyles={'flex-1  max-w-[660px]'}
+                    labelStyles={'flex-1 max-w-[660px]'}
                     styles={
                         'w-full appearance-none border border-[#ccc] outline-none bg-[#fff] text-[#636363] px-[12px] py-[4px] h-[32px]'
                     }
                 />
             </section>
-            <section className="isolate mt-[12px] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
-                <Form
-                    schema={SearchSchema}
-                    defaultValues={{
-                        dateRange: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
-                        timeFrom: new Date(),
-                        timeTo: new Date(),
-                    }}
-                    onSubmit={handleSubmit}
-                    className="flex gap-[4px]"
-                >
-                    <InputDateRange />
-                    <InputTimePicker name="timeFrom" />
-                    <InputTimePicker name="timeTo" />
-                    <InputSelect
-                        options={searchOptions.kct}
-                        name={'kct'}
-                        onChanges={isSelectItem}
-                        labelStyles={'flex-1  max-w-[100px]'}
-                        styles={
-                            'w-full appearance-none border border-[#ccc] outline-none bg-[#fff] text-[#636363] text-[12px] px-[12px] py-[4px] h-[26px]'
-                        }
-                    />
-                    <InputSelect
-                        options={searchOptions.na}
-                        name={'na'}
-                        onChanges={isSelectItem}
-                        labelStyles={'flex-1  max-w-[100px]'}
-                        styles={
-                            'w-full appearance-none border border-[#ccc] outline-none bg-[#fff] text-[#636363] text-[12px] px-[12px] py-[4px] h-[26px]'
-                        }
-                    />
-                    <IconButton
-                        icon={<Refresh sx={{ fontSize: 'inherit' }} />}
-                        type={'reset'}
-                        style={
-                            'flex justify-center items-center rounded-[4px] border border-[#636363] bg-[#fff] w-[26px] h-[26px] text-[14px]'
-                        }
-                        label={'Refresh Button'}
-                        iconPosition={'full'}
-                    />
-                    <IconButton
-                        icon={<Search sx={{ fontSize: 'inherit' }} />}
-                        type={'submit'}
-                        style={
-                            'flex justify-center items-center rounded-[4px] border border-[#636363] bg-[#fff] w-[26px] h-[26px] text-[14px]'
-                        }
-                        label={'Refresh Button'}
-                        iconPosition={'full'}
-                    />
-                </Form>
-            </section>
+            {activeEl === 1 && (
+                <section className="isolate mt-[12px] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
+                    <Form
+                        schema={SearchSchema}
+                        defaultValues={{
+                            dateRange: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
+                            timeFrom: new Date(),
+                            timeTo: new Date(),
+                        }}
+                        onSubmit={handleSubmit}
+                        className="flex gap-[4px]"
+                    >
+                        <InputDateRange />
+                        <InputTimePicker name="timeFrom" />
+                        <InputTimePicker name="timeTo" />
+                        <InputSelect
+                            options={searchOptions.kct}
+                            name={'kct'}
+                            onChanges={isSelectItem}
+                            labelStyles={'flex-1  max-w-[100px]'}
+                            styles={
+                                'w-full appearance-none border border-[#ccc] outline-none bg-[#fff] text-[#636363] text-[12px] px-[12px] py-[4px] h-[26px]'
+                            }
+                        />
+                        <InputSelect
+                            options={searchOptions.na}
+                            name={'na'}
+                            onChanges={isSelectItem}
+                            labelStyles={'flex-1  max-w-[100px]'}
+                            styles={
+                                'w-full appearance-none border border-[#ccc] outline-none bg-[#fff] text-[#636363] text-[12px] px-[12px] py-[4px] h-[26px]'
+                            }
+                        />
+                        <IconButton
+                            icon={<Refresh sx={{ fontSize: 'inherit' }} />}
+                            type={'reset'}
+                            style={
+                                'flex justify-center items-center rounded-[4px] border border-[#636363] bg-[#fff] w-[26px] h-[26px] text-[14px]'
+                            }
+                            label={'Refresh Button'}
+                            iconPosition={'full'}
+                        />
+                        <IconButton
+                            icon={<Search sx={{ fontSize: 'inherit' }} />}
+                            type={'submit'}
+                            style={
+                                'flex justify-center items-center rounded-[4px] border border-[#636363] bg-[#fff] w-[26px] h-[26px] text-[14px]'
+                            }
+                            label={'Refresh Button'}
+                            iconPosition={'full'}
+                        />
+                    </Form>
+                </section>
+            )}
             {activeEl === 0 && <WritePage />}
             {activeEl === 1 && <ViewPage />}
         </div>

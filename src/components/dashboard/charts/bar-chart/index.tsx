@@ -17,7 +17,6 @@ const renderLegend = (props: DefaultLegendContentProps) => {
     const { payload } = props
     if (!payload) return null
 
-    console.log('payload', payload)
     return (
         <ul
             style={{

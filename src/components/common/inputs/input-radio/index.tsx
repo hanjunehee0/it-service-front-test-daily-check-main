@@ -1,27 +1,57 @@
-import { InputRadio } from '@/types/components/common/inputs.ts'
+import { Controller, useFormContext } from 'react-hook-form'
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked'
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
+import { InputRadio, RadioOption } from '@/types/components/common/inputs.ts'
+export const InputRadioComp = ({ name, label, style = '', options }: InputRadio) => {
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
 
-export const InputRadioComp = ({ name, error, style, register, items }: InputRadio) => {
+    const errorMessage = errors[name]?.message as string | undefined
+
     return (
-        <>
+        <div className="flex flex-col">
             <div className="flex flex-row gap-[0.5rem]">
-                {items.map((item, i) => (
-                    <label
-                        key={`${item.label}-${i}`}
-                        className={style ? 'flex flex-row items-center gap-[0.25rem]' : ''}
-                    >
-                        <input
-                            type="radio"
-                            {...register}
-                            name={name}
-                            value={item.value}
-                            className={style ? 'sr-only peer' : ''}
-                        />
-                        {style && <span className={style}></span>}
-                        {item.label}
-                    </label>
-                ))}
+                <Controller
+                    name={name}
+                    control={control}
+                    render={({ field }) => (
+                        <>
+                            {label && (
+                                <label className="text-[12px] py-[4px] text-[#333]">{label}</label>
+                            )}
+                            <div className="flex flex-row gap-[0.5rem]">
+                                {options.map((item: RadioOption, i: number) => (
+                                    <label
+                                        key={`${item.label}-${i}`}
+                                        className="flex flex-row items-center gap-[0.25rem] cursor-pointer"
+                                    >
+                                        <input
+                                            type="radio"
+                                            name={name}
+                                            value={item.value}
+                                            checked={field.value === item.value}
+                                            onChange={() => field.onChange(item.value)}
+                                            className="sr-only peer"
+                                        />
+                                        {field.value === item.value &&
+                                            <RadioButtonCheckedIcon className="hidden peer-checked:block text-blue-600" />
+                                        }
+                                        {field.value !== item.value &&
+                                            <RadioButtonUncheckedIcon className="peer-checked:hidden text-blue-600" />
+                                        }
+                                        <div className="relative">
+                                        </div>
+                                        <span className={style || ''}>{item.label}</span>
+                                    </label>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                />
             </div>
-            {error && <p className="text-red-700 font-bold">{error.message}</p>}
-        </>
+            {errorMessage && <span className="text-[11px] text-red-500 mt-1">{errorMessage}</span>}
+        </div>
     )
 }
