@@ -7,14 +7,14 @@ import {
 } from '@/types/components/dashboard/dashboard.ts'
 
 export const getCountCards = ({
-    chargePoint,
-    blinkCharging,
+    chargePointData,
+    blinkChargingData,
 }: {
-    chargePoint: OriginData[]
-    blinkCharging: OriginData[]
+    chargePointData: OriginData[]
+    blinkChargingData: OriginData[]
 }): ReturnSumData[] => {
     const sumData: CombinedData = {}
-    const combined = [...chargePoint, ...blinkCharging]
+    const combined = [...chargePointData, ...blinkChargingData]
 
     combined.forEach((item) => {
         if (!sumData[item.regDate]) {

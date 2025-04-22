@@ -10,13 +10,21 @@ export interface InputText {
     register?: ReturnType<UseFormRegister<never>>
 }
 
+export interface RadioOption {
+    label: string
+    value: string | number
+}
+
 export interface InputRadio {
-    error?: FieldError | ''
-    style?: string | ''
     name: string
-    items: {
-        value: string
-        label: string
-    }[]
-    register?: ReturnType<UseFormRegister<never>>
+    label?: string
+    options: RadioOption[]
+    style?: string
+}
+
+export interface InputNumberProps {
+    name: string
+    label?: string
+    placeholder?: string
+    style?: string
 }

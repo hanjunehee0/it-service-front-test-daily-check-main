@@ -1,7 +1,7 @@
 import { TabButtonTag } from '@/types/components/common/button.ts'
 import { Options } from '@/types/components/common/select.ts'
 import { TableBodyStyle, TableHeader } from '@/types/components/dashboard/dashboard.ts'
-
+import { RadioOption } from '@/types/components/common/inputs.ts'
 export const TabMenus: TabButtonTag[] = [
     {
         onClick: undefined,
@@ -109,3 +109,9 @@ export const tBodyStyle: TableBodyStyle = {
     tBodyStyle: '',
     tdStyle: 'px-[12px] py-[6px] border border-[#cccccc] text-[12px]',
 }
+
+
+export const options: RadioOption[] = [
+    {label: 'chargePoint', value: 'chargePoint'},
+    {label: 'blinkCharging', value: 'blinkCharging'},
+]
