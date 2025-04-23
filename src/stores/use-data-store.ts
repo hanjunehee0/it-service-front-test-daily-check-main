@@ -38,6 +38,15 @@ const initialState = {
     blinkChargingData: [...blinkCharging],
 }
 
+// 데이터 추가 시 날짜순 정렬 함수
+const sortByDate = (arr: OriginData[]) => {
+    return [...arr].sort((a, b) => {
+        const dataA = new Date(a.regDate).getTime()
+        const dataB = new Date(b.regDate).getTime()
+        return dataA - dataB
+    })
+}
+
 export const useDataStore = create<DataStatus>((set) => ({
     ...initialState,
     setSaveStatus: (data: OriginData) =>
@@ -58,10 +67,10 @@ export const useDataStore = create<DataStatus>((set) => ({
                 ...state,
                 setType: data.setType,
                 chargePointData: isChargePoint
-                    ? [...state.chargePointData, { ...data }]
+                    ? sortByDate([...state.chargePointData, { ...data }])
                     : state.chargePointData,
                 blinkChargingData: !isChargePoint
-                    ? [...state.blinkChargingData, { ...data }]
+                    ? sortByDate([...state.blinkChargingData, { ...data }])
                     : state.blinkChargingData,
             }
         }),

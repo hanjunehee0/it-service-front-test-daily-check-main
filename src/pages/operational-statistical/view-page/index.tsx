@@ -4,7 +4,7 @@ import { BarChartComp } from '@/components/dashboard/charts/bar-chart'
 import { DataCard } from '@/components/dashboard/count-card'
 import { dataThead, tBodyStyle } from '@/configs/dashboard.ts'
 import { ReturnSumData } from '@/types/components/dashboard/dashboard.ts'
-import { getBarCharts, getCountCards, getTableData } from '@/utils/dashboard/get-count-cards.ts'
+import { getBarCharts, getCountCards, getTableData } from '@/utils/dashboard/convert-data-type.ts'
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined'
 import { useDataStore } from '@/stores/use-data-store.ts'
 
@@ -17,7 +17,6 @@ export const ViewPage = () => {
 
     const { chargePointData, blinkChargingData } = useDataStore()
     const cloneBC: ReturnSumData[] = [...getCountCards({ chargePointData, blinkChargingData })]
-    console.log('cloneBC: ', cloneBC)
     return (
         <>
             <article className="mt-[12px] bg-[#ffffff] p-[12px]">
