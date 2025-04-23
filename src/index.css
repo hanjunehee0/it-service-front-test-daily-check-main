@@ -119,3 +119,14 @@ body {
         clip-path: inset(0 0% 0 0);
     }
 }
+/* Swiper x-scroll-bar offset */
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    top: calc(100% - 5px) !important;
+    /* Swiper x-scroll-bar opacity */
+    .swiper-scrollbar-drag {
+        opacity: 0.3;
+    }
+}
