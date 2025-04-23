@@ -40,7 +40,9 @@ export const getCountCards = ({
         sumData[item.regDate].tariffSuccess += tariffSuccess
         sumData[item.regDate].tariffFailed += item.tariff.failed
     })
-    return Object.entries(sumData).map(([regDate, values]) => ({
+    return Object.entries(sumData)
+        .sort(([dataA], [dataB]) => new Date(dataA).getTime() - new Date(dataB).getTime())
+        .map(([regDate, values]) => ({
         regDate,
         success: values.stationSuccess + values.tariffSuccess,
         failed: values.stationFailed + values.tariffFailed,
