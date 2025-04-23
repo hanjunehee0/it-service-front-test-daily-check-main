@@ -30,7 +30,6 @@ export const HeaderUtil = () => {
                     fontSize: '16px',
                 }}
             />
-            {/*  접근성을 위한 클래스 부여  */}
             <span className="sr-only">{isFullScreen ? 'offFull' : 'onFull'}</span>
         </button>
     )

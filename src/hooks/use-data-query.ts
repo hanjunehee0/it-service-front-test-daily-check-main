@@ -5,7 +5,6 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 export const useDataQuery = () => {
     const queryClient = useQueryClient()
 
-    // 데이터 조회
     const { data: dashboardData, isLoading } = useQuery({
         queryKey: ['dashboard'],
         queryFn: async () => {
@@ -19,7 +18,6 @@ export const useDataQuery = () => {
         },
     })
 
-    // 데이터 저장
     const { mutate: saveData } = useMutation({
         mutationFn: async (newData: OriginData) => {
             const { data } = await api.post('/api/data', JSON.stringify(newData))

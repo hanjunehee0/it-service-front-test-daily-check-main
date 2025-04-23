@@ -64,14 +64,12 @@ export const getBarCharts = (data: OriginData[]) => {
             type: 'tariff',
             ...tariff,
         })
-        // console.log(transData)
     })
     return transData
 }
 
 export const getTableData = (data: OriginData[]) => {
     const transData: TableBodyRows = []
-    console.log('transData: ', transData)
     data.forEach((item) => {
         const { regDate, station, tariff } = item
         transData.push({

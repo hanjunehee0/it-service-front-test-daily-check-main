@@ -7,7 +7,7 @@ import { CustomInputProps } from '@/types/components/common/input-date-picker.ts
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 
 export const InputDateRange = () => {
-    const { control } = useFormContext() // react-hook-form 컨텍스트 가져오기
+    const { control } = useFormContext()
 
     return (
         <Controller

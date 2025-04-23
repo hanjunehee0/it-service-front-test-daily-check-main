@@ -17,32 +17,28 @@
 * {
     box-sizing: border-box;
 }
-/* 화면 높이 표현을 위해 컨텐츠 wrapper 의 모든 부모에 height: 100% 적용하여 상속 */
 body {
     height: 100%;
     #root {
         height: 100%;
     }
 }
-/* react-datepicker ui 개선 css */
-/* time의 modal 호출 시 border 잘림 현상 개선 */
 .react-datepicker {
     overflow: auto;
 }
 .react-datepicker-wrapper {
     height: max-content;
 }
-/* scrollbar width로 인해 레이아웃 깨짐 현상 개선 */
+
 .react-datepicker__time-list {
-    -ms-overflow-style: none; /* IE */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .react-datepicker__time-list::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
+    display: none;
 }
 
 
-/* src/index.css 또는 global.css 등에 추가 */
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
 }
@@ -62,13 +58,11 @@ body {
     background-color: rgba(100, 100, 100, 0.7);
 }
 
-/* Firefox */
 .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
 }
 
-/* Loading Component */
 .loading-wrap {
     position: fixed;
     z-index: 999;
@@ -119,13 +113,11 @@ body {
         clip-path: inset(0 0% 0 0);
     }
 }
-/* Swiper x-scroll-bar offset */
 .swiper-scrollbar.swiper-scrollbar-horizontal {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
     top: calc(100% - 5px) !important;
-    /* Swiper x-scroll-bar opacity */
     .swiper-scrollbar-drag {
         opacity: 0.3;
     }

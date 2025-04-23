@@ -53,12 +53,6 @@ export const TableComponent = ({
                 </tbody>
             </table>
             <table className="w-full relative mt-[-1px]">
-                {/*<colgroup>*/}
-                {/*    {tHeader.colWidths &&*/}
-                {/*        tHeader.colWidths.map((value, idx) => (*/}
-                {/*            <col key={`${value}-${idx}`} width={value} />*/}
-                {/*        ))}*/}
-                {/*</colgroup>*/}
                 <Scrollbar
                     tagName="tbody"
                     maxHeight="204px"

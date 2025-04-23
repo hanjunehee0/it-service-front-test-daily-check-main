@@ -8,7 +8,6 @@ export const Accordion = ({ title, icon, children, defaultOpen = true }: Accordi
     const [isShow, setIsShow] = useState(defaultOpen)
     const toggleItem = () => {
         setIsShow((isShow) => !isShow)
-        console.log('isShow:', isShow)
     }
 
     return (
