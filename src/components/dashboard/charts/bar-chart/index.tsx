@@ -12,7 +12,6 @@ import {
     YAxis,
 } from 'recharts'
 
-// 커스텀 Legend 렌더러 - 원형 아이콘 사용
 const renderLegend = (props: DefaultLegendContentProps) => {
     const { payload } = props
     if (!payload) return null

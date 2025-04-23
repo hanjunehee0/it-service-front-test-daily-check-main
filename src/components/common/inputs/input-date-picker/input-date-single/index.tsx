@@ -1,4 +1,3 @@
-// components/common/inputs/input-date-picker/input-date-picker.tsx
 import { forwardRef } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'

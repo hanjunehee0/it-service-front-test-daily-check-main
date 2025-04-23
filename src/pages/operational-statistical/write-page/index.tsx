@@ -2,20 +2,17 @@ import { PrimaryButton } from '@/components/common/buttons/primary-button'
 import { Form } from '@/components/common/form'
 import { InputDateSingle } from '@/components/common/inputs/input-date-picker/input-date-single'
 import { InputNumber } from '@/components/common/inputs/input-number'
-import { useDataStore } from '@/stores/use-data-store.ts'
-import { writeValidation } from '@/utils/schema/schema.ts'
 import { InputRadioComp } from '@/components/common/inputs/input-radio'
 import { options } from '@/configs/dashboard.ts'
+import { useDataStore } from '@/stores/use-data-store.ts'
 import { useTabStore } from '@/stores/use-tab-store.ts'
-
+import { writeValidation } from '@/utils/schema/schema.ts'
 
 export const WritePage = () => {
-    const { saveData, resetStatus, setType, chargePointData, blinkChargingData, setDataType } = useDataStore()
+    const { saveData, resetStatus, setType, chargePointData, blinkChargingData, setDataType } =
+        useDataStore()
     const { setActiveEl } = useTabStore()
 
-
-    console.log('chargePointData: ', chargePointData)
-    console.log('blinkChargingData: ', blinkChargingData)
     const defaultValues = {
         regDate: new Date(),
         station: {
@@ -57,7 +54,6 @@ export const WritePage = () => {
         }
 
         saveData(formattedData)
-        console.log('formattedData', formattedData)
         setActiveEl(1)
     }
 
@@ -84,7 +80,6 @@ export const WritePage = () => {
                     <div className="flex gap-[8px] isolate">
                         <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
                             Station
-
                             <InputNumber name={'station.put'} label={'put'} />
                             <InputNumber name={'station.patch'} label={'patch'} />
                             <InputNumber name={'station.delete'} label={'delete'} />
@@ -93,13 +88,11 @@ export const WritePage = () => {
                         </div>
                         <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
                             Tariff
-
                             <InputNumber name={'tariff.put'} label={'put'} />
                             <InputNumber name={'tariff.patch'} label={'patch'} />
                             <InputNumber name={'tariff.delete'} label={'delete'} />
                             <InputNumber name={'tariff.getNPost'} label={'get & Post'} />
                             <InputNumber name={'tariff.failed'} label={'failed'} />
-
                         </div>
                     </div>
                     <div className="justify-center flex gap-[16px] mt-[16px]">

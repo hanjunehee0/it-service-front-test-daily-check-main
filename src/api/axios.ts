@@ -20,7 +20,6 @@ const apiAdapter = (config: InternalAxiosRequestConfig): Promise<AxiosResponse> 
             }
             if (method === 'post') {
                 let newDummy = JSON.parse(data)
-                // 배열인지 체크
                 if (Array.isArray(newDummy)) {
                     newDummy = newDummy[0]
                 }

@@ -12,7 +12,7 @@ export const InputSelect = ({
     labelStyles,
 }: SelectTag) => {
     const handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        onChanges(e?.target?.value) // 선택된 값 전달
+        onChanges(e?.target?.value)
     }
 
     return (

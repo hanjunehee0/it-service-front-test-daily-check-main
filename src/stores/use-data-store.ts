@@ -1,4 +1,3 @@
-// stores/use-data-store.ts
 import { blinkCharging, chargePoint } from '@/api/mock/graph-api-data.ts'
 import { OriginData } from '@/types/components/dashboard/dashboard.ts'
 import { create } from 'zustand'
@@ -14,7 +13,6 @@ export interface DataStatus {
     resetStatus: () => void
 }
 
-// 초기 dummy 데이터를 설정
 const initialState = {
     data: {
         regDate: new Date().toISOString().split('T')[0],
@@ -38,7 +36,6 @@ const initialState = {
     blinkChargingData: [...blinkCharging],
 }
 
-// 데이터 추가 시 날짜순 정렬 함수
 const sortByDate = (arr: OriginData[]) => {
     return [...arr].sort((a, b) => {
         const dataA = new Date(a.regDate).getTime()

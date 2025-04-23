@@ -11,7 +11,7 @@ export const Form = <T extends FieldValues>({
     className = '',
 }: FormProps<T>) => {
     const methods = useForm<T>({
-        defaultValues, // 초기값 세팅
+        defaultValues,
         resolver: zodResolver(schema),
     })
     const { handleSubmit, reset } = methods
