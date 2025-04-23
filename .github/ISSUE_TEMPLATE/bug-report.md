@@ -10,7 +10,6 @@ assignees: hanjunehee0
 ### Bug 내용
 > Bug 내용에 대해서 간략한 설명
 
-spoon option용 컴포넌트 에러
 <br />
 
 ### 참고 사항
