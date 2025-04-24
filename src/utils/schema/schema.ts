@@ -72,12 +72,6 @@ export const writeValidation = z.object({
         .optional(),
 })
 
-export const searchFilter = z.object({
-    filterSelect: z
-        .enum(['chargePoint', 'blinkCharging'], { message: '유형을 선택해 주세요.' })
-        .optional(),
-})
-
 export const searchSchema = z.object({
     dateRange: z
         .tuple([z.date().nullable().default(null), z.date().nullable().default(null)])
@@ -91,4 +85,3 @@ export const searchSchema = z.object({
 export type SearchSchemaType = z.infer<typeof searchSchema>
 
 export type WriteValidationType = z.infer<typeof writeValidation>
-export type SearchFilterType = z.infer<typeof searchFilter>

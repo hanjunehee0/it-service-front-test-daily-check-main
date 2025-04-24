@@ -2,7 +2,7 @@ import { Accordion } from '@/components/dashboard/accordion'
 import { BarChartComp } from '@/components/dashboard/charts/bar-chart'
 import { DataCard } from '@/components/dashboard/count-card'
 import { TableComponent } from '@/components/dashboard/table'
-import { dataThead, tBodyStyle } from '@/configs/dashboard.ts'
+import { THEAD_DATA, TBODY_STYLE } from '@/constant/dashboard.ts'
 import { useDataStore } from '@/stores/use-data-store.ts'
 import { ReturnSumData } from '@/types/components/dashboard/dashboard.ts'
 import { getBarCharts, getCountCards, getTableData } from '@/utils/dashboard/convert-data-type.ts'
@@ -43,9 +43,9 @@ export const ViewPage = () => {
                         </div>
                         <div className="mt-16">
                             <TableComponent
-                                tHeader={dataThead}
+                                tHeader={THEAD_DATA}
                                 tBody={getTableData(chargePointData)}
-                                bodyStyle={tBodyStyle}
+                                bodyStyle={TBODY_STYLE}
                             />
                         </div>
                     </Accordion>
@@ -57,9 +57,9 @@ export const ViewPage = () => {
                         </div>
                         <div className="mt-16">
                             <TableComponent
-                                tHeader={dataThead}
+                                tHeader={THEAD_DATA}
                                 tBody={getTableData(blinkChargingData)}
-                                bodyStyle={tBodyStyle}
+                                bodyStyle={TBODY_STYLE}
                             />
                         </div>
                     </Accordion>

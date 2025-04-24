@@ -68,8 +68,8 @@ pnpm dev
  ┃ ┃ ┣ 📂count-card
  ┃ ┃ ┃ ┗ 📜index.tsx
  ┃ ┃ ┗ 📂tab-menu
- ┃ ┃ ┃ ┗ 📜index.tsx
- ┣ 📂configs
+ ┃ ┃   ┗ 📜index.tsx
+ ┣ 📂constant
  ┃ ┗ 📜dashboard.ts
  ┣ 📂hooks
  ┃ ┗ 📜use-data-query.ts

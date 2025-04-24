@@ -3,7 +3,7 @@ import { RadioOption } from '@/types/components/common/inputs.ts'
 import { Options } from '@/types/components/common/select.ts'
 import { TableBodyStyle, TableHeader } from '@/types/components/dashboard/dashboard.ts'
 
-export const TabMenus: TabButtonTag[] = [
+export const TAB_MENUS: TabButtonTag[] = [
     {
         onClick: undefined,
         label: '입력부',
@@ -18,7 +18,7 @@ export const TabMenus: TabButtonTag[] = [
     },
 ]
 
-export const topFilter: Options[] = [
+export const TOP_FILTER: Options[] = [
     {
         value: 'cp-bc-stats',
         label: 'Charge Point, Blink Charging 요청 Put/Delete/Patch별 성공/실패 수 및 총 인입량',
@@ -57,8 +57,7 @@ export const topFilter: Options[] = [
     },
 ]
 
-
-export const searchOptions = {
+export const SEARCH_OPTIONS = {
     na: [
         {
             value: 'na',
@@ -89,7 +88,7 @@ export const searchOptions = {
     ],
 }
 
-export const dataThead: TableHeader = {
+export const THEAD_DATA: TableHeader = {
     tableStyle:
         'w-full table-fixed border-spacing-0 text-sm text-center border-t-[#000000] border-t-[2px]',
     rowStyle: '',
@@ -107,7 +106,7 @@ export const dataThead: TableHeader = {
     ],
 }
 
-export const tBodyStyle: TableBodyStyle = {
+export const TBODY_STYLE: TableBodyStyle = {
     tBodyStyle: '',
     tdStyle: 'px-[12px] py-[6px] border border-[#cccccc] text-[12px]',
 }

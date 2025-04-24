@@ -3,7 +3,7 @@ import { Form } from '@/components/common/form'
 import { InputDateSingle } from '@/components/common/inputs/input-date-picker/input-date-single'
 import { InputNumber } from '@/components/common/inputs/input-number'
 import { InputRadioComp } from '@/components/common/inputs/input-radio'
-import { options } from '@/configs/dashboard.ts'
+import { options } from '@/constant/dashboard.ts'
 import { useDataStore } from '@/stores/use-data-store.ts'
 import { useTabStore } from '@/stores/use-tab-store.ts'
 import { OriginDataNDate } from '@/types/components/dashboard/dashboard.ts'
@@ -82,19 +82,27 @@ export const WritePage = () => {
                     <div className="flex gap-[8px] px-[24px] py-[12px] isolate rounded-sm border border-[#00000033] bg-[#f1f5f9]">
                         <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px] ">
                             <strong className="text-[16px]">Station</strong>
-                            <InputNumber name={'station.put'} label={'put'} />
-                            <InputNumber name={'station.patch'} label={'patch'} />
-                            <InputNumber name={'station.delete'} label={'delete'} />
-                            <InputNumber name={'station.getNPost'} label={'get & Post'} />
-                            <InputNumber name={'station.failed'} label={'failed'} />
+                            <InputNumber name={'station.put'} label={'put'} minMax={[1, 6]} />
+                            <InputNumber name={'station.patch'} label={'patch'} minMax={[1, 6]} />
+                            <InputNumber name={'station.delete'} label={'delete'} minMax={[1, 6]} />
+                            <InputNumber
+                                name={'station.getNPost'}
+                                label={'get & Post'}
+                                minMax={[1, 6]}
+                            />
+                            <InputNumber name={'station.failed'} label={'failed'} minMax={[1, 6]} />
                         </div>
                         <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px]">
                             <strong className="text-[16px]">Tariff</strong>
-                            <InputNumber name={'tariff.put'} label={'put'} />
-                            <InputNumber name={'tariff.patch'} label={'patch'} />
-                            <InputNumber name={'tariff.delete'} label={'delete'} />
-                            <InputNumber name={'tariff.getNPost'} label={'get & Post'} />
-                            <InputNumber name={'tariff.failed'} label={'failed'} />
+                            <InputNumber name={'tariff.put'} label={'put'} minMax={[1, 6]} />
+                            <InputNumber name={'tariff.patch'} label={'patch'} minMax={[1, 6]} />
+                            <InputNumber name={'tariff.delete'} label={'delete'} minMax={[1, 6]} />
+                            <InputNumber
+                                name={'tariff.getNPost'}
+                                label={'get & Post'}
+                                minMax={[1, 6]}
+                            />
+                            <InputNumber name={'tariff.failed'} label={'failed'} minMax={[1, 6]} />
                         </div>
                     </div>
                     <div className="justify-center flex gap-[16px] mt-[16px]">

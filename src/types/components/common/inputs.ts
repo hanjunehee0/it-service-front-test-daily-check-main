@@ -27,4 +27,5 @@ export interface InputNumberProps {
     label?: string
     placeholder?: string
     style?: string
+    minMax?: [number, number] | [null | null]
 }
