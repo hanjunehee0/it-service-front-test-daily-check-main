@@ -14,7 +14,6 @@ const fetchSearchQuery = async (params: SearchSchemaType): Promise<OriginData[]>
     return data
 }
 
-// React Query를 사용한 데이터 조회 훅
 export const useSearchQuery = (params: SearchSchemaType) => {
     return useQuery<OriginData[], Error>({
         queryKey: ['searchQuery'],
