@@ -120,3 +120,27 @@ form .react-datepicker__tab-loop {
 .scroll-wheel-stop.ps.ps--active-y {
     overscroll-behavior-y: contain !important;
 }
+
+table tr td.hover-col {
+    background-color: #f5f9ff;
+    &:last-child {
+        background-color: #dfeaff;
+    }
+}
+table tr.hover-row td {
+    background-color: #eef5ff;
+    transition: all 0.2s ease;
+    &.hover-col {
+        background-color: #dceaff;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        &:last-child {
+            background-color: #a3c7ff;
+            transition: all 0.2s ease;
+        }
+    }
+    &:last-child {
+        background-color: #e1f0ff;
+        transition: all 0.2s ease;
+    }
+}

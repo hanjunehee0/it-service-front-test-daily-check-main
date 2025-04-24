@@ -58,7 +58,7 @@ export const WritePage = () => {
     }
 
     return (
-        <article className="mt-[12px] bg-[#ffffff] p-[12px]">
+        <article className="mt-[12px] p-[12px]">
             <div className="max-w-[920px] mx-auto">
                 <Form
                     schema={writeValidation}
@@ -66,20 +66,22 @@ export const WritePage = () => {
                     onSubmit={handleSubmit}
                     className="space-y-4"
                 >
-                    <h2 className="text-[18px] font-bold">데이터 입력</h2>
-                    <div className="flex gap-[8px]">
-                        <div className="flex flex-col flex-1 gap-[4px]">
-                            데이터 종류
+                    <h2 className="text-[18px] font-bold mt-[12px] px-[24px] py-[12px] text-[#fff] bg-[#2563EB] rounded-sm">
+                        데이터 입력
+                    </h2>
+                    <div className="flex gap-[8px] px-[24px] py-[12px] border-[#E2E8F0] border-[1px] bg-[#fff] rounded-sm text-[16px]">
+                        <div className="flex flex-col flex-1 gap-[8px]">
+                            <span className="font-bold">데이터 종류</span>
                             <InputRadioComp name={'setType'} options={options} />
                         </div>
-                        <div className="flex flex-col flex-1 gap-[4px]">
-                            등록일
+                        <div className="flex flex-col flex-1 gap-[8px]">
+                            <span className="font-bold">등록일</span>
                             <InputDateSingle name={'regDate'} />
                         </div>
                     </div>
-                    <div className="flex gap-[8px] isolate rounded-[2px] border border-[#00000033] bg-[#DADADA]">
+                    <div className="flex gap-[8px] px-[24px] py-[12px] isolate rounded-sm border border-[#00000033] bg-[#f1f5f9]">
                         <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px] ">
-                            Station
+                            <strong className="text-[16px]">Station</strong>
                             <InputNumber name={'station.put'} label={'put'} />
                             <InputNumber name={'station.patch'} label={'patch'} />
                             <InputNumber name={'station.delete'} label={'delete'} />
@@ -87,7 +89,7 @@ export const WritePage = () => {
                             <InputNumber name={'station.failed'} label={'failed'} />
                         </div>
                         <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px]">
-                            Tariff
+                            <strong className="text-[16px]">Tariff</strong>
                             <InputNumber name={'tariff.put'} label={'put'} />
                             <InputNumber name={'tariff.patch'} label={'patch'} />
                             <InputNumber name={'tariff.delete'} label={'delete'} />

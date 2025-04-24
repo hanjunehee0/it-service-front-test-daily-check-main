@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router'
 
 import { IconButton } from '@/components/common/buttons/icon-button'
 import { Form } from '@/components/common/form'
@@ -28,9 +29,10 @@ export const OperationalStatistical = () => {
         ...item,
         onClick: (p: number) => handleTabActive(p),
     }))
-
+    const { id } = useParams()
+    const navigate = useNavigate()
     const isSelectItem = (p?: string) => {
-        console.log('change-select', p)
+        navigate(`/${p}`)
     }
     const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
     const today = new Date()
@@ -53,6 +55,11 @@ export const OperationalStatistical = () => {
             na,
         })
     }
+    useEffect(() => {
+        if (!id || id === ':id') {
+            navigate('/cp-bc-stats', { replace: true })
+        }
+    }, [id, navigate])
 
     useEffect(() => {
         return () => resetActiveEl()
@@ -66,7 +73,7 @@ export const OperationalStatistical = () => {
             </div>
         )
     return (
-        <div>
+        <div className="h-full">
             <section className="flex gap-[12px] items-center justify-start">
                 <TabMenu
                     tabs={{
@@ -108,7 +115,6 @@ export const OperationalStatistical = () => {
                         <InputSelect
                             options={searchOptions.kct}
                             name={'kct'}
-                            onChanges={isSelectItem}
                             labelStyles={'flex-1  max-w-[100px]'}
                             styles={
                                 'w-full appearance-none border border-[#ccc] outline-none bg-[#fff] text-[#636363] text-[12px] px-[12px] py-[4px] h-[26px]'
@@ -117,7 +123,6 @@ export const OperationalStatistical = () => {
                         <InputSelect
                             options={searchOptions.na}
                             name={'na'}
-                            onChanges={isSelectItem}
                             labelStyles={'flex-1  max-w-[100px]'}
                             styles={
                                 'w-full appearance-none border border-[#ccc] outline-none bg-[#fff] text-[#636363] text-[12px] px-[12px] py-[4px] h-[26px]'
@@ -144,8 +149,13 @@ export const OperationalStatistical = () => {
                     </Form>
                 </section>
             )}
-            {activeEl === 0 && <WritePage />}
-            {activeEl === 1 && <ViewPage />}
+            {id !== 'cp-bc-stats' && (
+                <div className="flex h-full justify-center items-center font-bold text-[22px]">
+                    {id} 페이지
+                </div>
+            )}
+            {activeEl === 0 && id === 'cp-bc-stats' && <WritePage />}
+            {activeEl === 1 && id === 'cp-bc-stats' && <ViewPage />}
         </div>
     )
 }

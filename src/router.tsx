@@ -10,7 +10,7 @@ const routes: RouteObject[] = [
         element: <MainLayout />,
         children: [
             {
-                path: '/',
+                path: '/:id',
                 handle: { crumb: 'OperationalStatistical Page', title: 'Operational Statistical' },
                 element: <OperationalStatistical />,
             },
