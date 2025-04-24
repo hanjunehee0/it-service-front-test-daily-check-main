@@ -1,8 +1,8 @@
-import { dummys } from '@/api/mock/graph-api-data.ts'
+import { dummy } from '@/api/mock/graph-api-data.ts'
 import { OriginData } from '@/types/components/dashboard/dashboard.ts'
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 
-let dummy = [...dummys] as OriginData[]
+let cloneData = [...dummy] as OriginData[]
 
 const apiAdapter = (config: InternalAxiosRequestConfig): Promise<AxiosResponse> => {
     const { method, url, data } = config
@@ -10,10 +10,11 @@ const apiAdapter = (config: InternalAxiosRequestConfig): Promise<AxiosResponse> 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (method === 'get' && url?.includes('/')) {
+                console.log('config', config)
                 resolve({
                     status: 200,
                     statusText: 'OK',
-                    data: dummy,
+                    data: cloneData,
                     headers: {},
                     config,
                 })
@@ -23,7 +24,8 @@ const apiAdapter = (config: InternalAxiosRequestConfig): Promise<AxiosResponse> 
                 if (Array.isArray(newDummy)) {
                     newDummy = newDummy[0]
                 }
-                dummy = [...dummys, newDummy] as OriginData[]
+                cloneData = [...dummy, newDummy] as OriginData[]
+                console.log('config', config)
                 resolve({
                     status: 201,
                     statusText: 'Created',

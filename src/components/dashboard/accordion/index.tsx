@@ -17,7 +17,7 @@ export const Accordion = ({ title, icon, children, defaultOpen = true }: Accordi
                     onClick={() => toggleItem()}
                     icon={icon}
                     iconPosition={'left'}
-                    style={'flex w-full py-[9px]  items-end gap-[4px] text-[24px]'}
+                    style={'flex w-full py-[9px] items-end gap-[4px] text-[24px]'}
                     label={'Charge Point'}
                     titleStyle={'text-[16px] font-bold'}
                     title={title}
@@ -25,7 +25,7 @@ export const Accordion = ({ title, icon, children, defaultOpen = true }: Accordi
                 <KeyboardArrowDownOutlinedIcon
                     className={`
                         absolute right-0 top-[50%] mt-[-12px] ml-auto
-                         text-[#636363] text-[18px]
+                         text-[#636363] text-[18px] pointer-events-none
                       `}
                     style={{
                         transform: !isShow ? 'rotate(180deg)' : 'rotate(360deg)',

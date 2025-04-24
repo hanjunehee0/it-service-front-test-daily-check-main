@@ -173,7 +173,7 @@ export const blinkCharging = [
     },
 ]
 
-export const dummys = [
+export const dummy = [
     {
         regDate: '2025-05-04',
         station: {

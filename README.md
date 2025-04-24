@@ -72,8 +72,7 @@ pnpm dev
  ┣ 📂configs
  ┃ ┗ 📜dashboard.ts
  ┣ 📂hooks
- ┃ ┣ 📜use-data-query.ts
- ┃ ┗ 📜use-search-query.ts
+ ┃ ┗ 📜use-data-query.ts
  ┣ 📂layouts
  ┃ ┣ 📂header-component
  ┃ ┃ ┣ 📂header-nav

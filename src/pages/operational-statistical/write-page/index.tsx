@@ -6,11 +6,11 @@ import { InputRadioComp } from '@/components/common/inputs/input-radio'
 import { options } from '@/configs/dashboard.ts'
 import { useDataStore } from '@/stores/use-data-store.ts'
 import { useTabStore } from '@/stores/use-tab-store.ts'
+import { OriginDataNDate } from '@/types/components/dashboard/dashboard.ts'
 import { writeValidation } from '@/utils/schema/schema.ts'
 
 export const WritePage = () => {
-    const { saveData, resetStatus, setType, chargePointData, blinkChargingData, setDataType } =
-        useDataStore()
+    const { saveData, resetStatus, setType, setDataType } = useDataStore()
     const { setActiveEl } = useTabStore()
 
     const defaultValues = {
@@ -31,8 +31,8 @@ export const WritePage = () => {
         },
         setType: setType,
     }
-    const handleSubmit = (data: any) => {
-        setDataType(data.setType)
+    const handleSubmit = (data: OriginDataNDate) => {
+        setDataType(data.setType ? data.setType : 'chargePoint')
 
         const formattedData = {
             regDate: data.regDate.toISOString().split('T')[0],
@@ -59,14 +59,14 @@ export const WritePage = () => {
 
     return (
         <article className="mt-[12px] bg-[#ffffff] p-[12px]">
-            <div className="max-w-[1000px] mx-auto">
+            <div className="max-w-[920px] mx-auto">
                 <Form
                     schema={writeValidation}
                     defaultValues={defaultValues}
                     onSubmit={handleSubmit}
                     className="space-y-4"
                 >
-                    <h2 className="text-[16px] font-bold">데이터 입력</h2>
+                    <h2 className="text-[18px] font-bold">데이터 입력</h2>
                     <div className="flex gap-[8px]">
                         <div className="flex flex-col flex-1 gap-[4px]">
                             데이터 종류
@@ -77,8 +77,8 @@ export const WritePage = () => {
                             <InputDateSingle name={'regDate'} />
                         </div>
                     </div>
-                    <div className="flex gap-[8px] isolate">
-                        <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
+                    <div className="flex gap-[8px] isolate rounded-[2px] border border-[#00000033] bg-[#DADADA]">
+                        <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px] ">
                             Station
                             <InputNumber name={'station.put'} label={'put'} />
                             <InputNumber name={'station.patch'} label={'patch'} />
@@ -86,7 +86,7 @@ export const WritePage = () => {
                             <InputNumber name={'station.getNPost'} label={'get & Post'} />
                             <InputNumber name={'station.failed'} label={'failed'} />
                         </div>
-                        <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
+                        <div className="flex gap-[8px] flex-col mt-[12px] w-[50%] relative z-2 px-[12px] py-[6px]">
                             Tariff
                             <InputNumber name={'tariff.put'} label={'put'} />
                             <InputNumber name={'tariff.patch'} label={'patch'} />

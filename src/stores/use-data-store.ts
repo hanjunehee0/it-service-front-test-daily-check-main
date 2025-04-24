@@ -1,17 +1,7 @@
 import { blinkCharging, chargePoint } from '@/api/mock/graph-api-data.ts'
 import { OriginData } from '@/types/components/dashboard/dashboard.ts'
+import { DataStatus } from '@/types/stores/store.ts'
 import { create } from 'zustand'
-
-export interface DataStatus {
-    data: OriginData
-    setType: 'chargePoint' | 'blinkCharging'
-    chargePointData: OriginData[]
-    blinkChargingData: OriginData[]
-    setSaveStatus: (data: OriginData) => void
-    setDataType: (type: 'chargePoint' | 'blinkCharging') => void
-    saveData: (data: OriginData) => void
-    resetStatus: () => void
-}
 
 const initialState = {
     data: {

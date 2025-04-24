@@ -1,39 +1,35 @@
-import { api } from '@/api/axios'
-import { OriginData } from '@/types/components/dashboard/dashboard'
+import { api } from '@/api/axios.ts'
+import { OriginData } from '@/types/components/dashboard/dashboard.ts'
+import { SearchSchemaType, searchSchema } from '@/utils/schema/schema.ts'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
-export const useDataQuery = () => {
+const API_URL = '/api/endpoint'
+
+export const createApiParams = (params: Partial<SearchSchemaType>): SearchSchemaType => {
+    return searchSchema.parse(params)
+}
+
+const fetchSearchQuery = async (params: SearchSchemaType): Promise<OriginData[]> => {
+    const { data } = await api.get<OriginData[]>(`${API_URL}`, { params: createApiParams(params) })
+    return data
+}
+
+// React Query를 사용한 데이터 조회 훅
+export const useSearchQuery = (params: SearchSchemaType) => {
+    return useQuery<OriginData[], Error>({
+        queryKey: ['searchQuery'],
+        queryFn: () => fetchSearchQuery(params),
+        staleTime: 1000 * 60 * 5,
+    })
+}
+
+export const useUpdateSearchQuery = () => {
     const queryClient = useQueryClient()
 
-    const { data: dashboardData, isLoading } = useQuery({
-        queryKey: ['dashboard'],
-        queryFn: async () => {
-            try {
-                const { data } = await api.get('/api/search')
-                return data || []
-            } catch (error) {
-                console.error('error: ', error)
-                return []
-            }
+    return useMutation<OriginData[], Error, SearchSchemaType>({
+        mutationFn: (params: SearchSchemaType) => fetchSearchQuery(params),
+        onSuccess: (data, variables) => {
+            queryClient.setQueryData(['searchQuery', variables], data)
         },
     })
-
-    const { mutate: saveData } = useMutation({
-        mutationFn: async (newData: OriginData) => {
-            const { data } = await api.post('/api/data', JSON.stringify(newData))
-            return data
-        },
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['dashboard'] })
-        },
-        onError: (error) => {
-            console.error('error: ', error)
-        },
-    })
-
-    return {
-        dashboardData,
-        isLoading,
-        saveData,
-    }
 }

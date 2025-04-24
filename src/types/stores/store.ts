@@ -10,6 +10,10 @@ export interface TabStore {
 export interface DataStatus {
     data: OriginData
     setType: setType
+    chargePointData: OriginData[]
+    blinkChargingData: OriginData[]
     setSaveStatus: (data: OriginData) => void
+    setDataType: (type: setType) => void
+    saveData: (data: OriginData) => void
     resetStatus: () => void
 }

@@ -1,8 +1,7 @@
 import { z } from 'zod'
 
 export const writeValidation = z.object({
-    regDate: z
-        .date(),
+    regDate: z.date(),
 
     station: z
         .object({
@@ -73,28 +72,23 @@ export const writeValidation = z.object({
         .optional(),
 })
 
-
 export const searchFilter = z.object({
     filterSelect: z
         .enum(['chargePoint', 'blinkCharging'], { message: '유형을 선택해 주세요.' })
         .optional(),
 })
-export const displayDataSelectSchema = z.object({
-    filterSelect: z.enum(['001', '002', '003'], {
-        required_error: '필터를 선택해야 합니다.',
-    }),
-})
 
-export const SearchSchema = z.object({
-    dateRange: z.tuple([z.date().nullable(), z.date().nullable()]),
-    timeFrom: z.date().nullable(),
-    timeTo: z.date().nullable(),
+export const searchSchema = z.object({
+    dateRange: z
+        .tuple([z.date().nullable().default(null), z.date().nullable().default(null)])
+        .default([null, null]),
+    timeFrom: z.date().nullable().default(null),
+    timeTo: z.date().nullable().default(null),
     na: z.enum(['na', 'na2', 'na3']),
     kct: z.enum(['kct', 'kct2', 'kct3']),
 })
 
-export type SearchSchemaType = z.infer<typeof SearchSchema>
-export type DisplayDataSelectSchemaType = z.infer<typeof displayDataSelectSchema>
+export type SearchSchemaType = z.infer<typeof searchSchema>
 
 export type WriteValidationType = z.infer<typeof writeValidation>
 export type SearchFilterType = z.infer<typeof searchFilter>
