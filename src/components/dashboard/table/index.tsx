@@ -52,16 +52,16 @@ export const TableComponent = ({
                     </tr>
                 </tbody>
             </table>
-            <table className="w-full relative mt-[-1px]">
+            <table className="w-full relative mt-[-1px] max-h-[145px] border-spacing-0">
                 <Scrollbar
                     tagName="tbody"
-                    maxHeight="204px"
+                    maxHeight="145px"
                     options={{
-                        suppressScrollY: `${tBody.length > 6}` ? false : true,
+                        suppressScrollY: `${tBody.length > 5}` ? false : true,
                     }}
                 >
                     {tBody.map((row, idx) => (
-                        <tr key={`row-${idx}`}>
+                        <tr key={`row-${idx}`} className="mt-[-1px]">
                             {Object.entries(row).map(([keys, item], colIdx) => (
                                 <td
                                     className={`${bodyStyle.tdStyle ? bodyStyle.tdStyle : ''} ${keys === 'regDate' ? ' text-left ' : 'text-right'} ${keys === 'failed' ? 'bg-[#FFE6E6] text-[#FF0000] ' : ''}

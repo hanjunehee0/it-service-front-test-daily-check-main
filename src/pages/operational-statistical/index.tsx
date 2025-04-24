@@ -5,14 +5,15 @@ import { Form } from '@/components/common/form'
 import { InputDateRange } from '@/components/common/inputs/input-date-picker/input-date-range'
 import { InputTimePicker } from '@/components/common/inputs/input-date-picker/input-time-picker'
 import { InputSelect } from '@/components/common/inputs/input-select'
+import { LoadingComponent } from '@/components/common/loading/index.tsx'
 import { TabMenu } from '@/components/dashboard/tab-menu'
 import { TabMenus, searchOptions, topFilter } from '@/configs/dashboard.ts'
-import { useSearchQuery } from '@/hooks/use-search-query.ts'
+import { useSearchQuery, useUpdateSearchQuery } from '@/hooks/use-data-query'
 import { ViewPage } from '@/pages/operational-statistical/view-page'
 import { WritePage } from '@/pages/operational-statistical/write-page'
 import { useTabStore } from '@/stores/use-tab-store.ts'
 import { TabButtonTag } from '@/types/components/common/button.ts'
-import { SearchSchema, SearchSchemaType } from '@/utils/schema/schema.ts'
+import { SearchSchemaType, searchSchema } from '@/utils/schema/schema.ts'
 import Refresh from '@mui/icons-material/Refresh'
 import Search from '@mui/icons-material/Search'
 
@@ -31,21 +32,25 @@ export const OperationalStatistical = () => {
     const isSelectItem = (p?: string) => {
         console.log('change-select', p)
     }
-
-    const { setParams } = useSearchQuery({
-        dateRange: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
-        timeFrom: new Date(),
-        timeTo: new Date(),
-        kct: '',
-        na: '',
+    const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+    const today = new Date()
+    const { data, isLoading, error } = useSearchQuery({
+        dateRange: [oneWeekAgo, today],
+        timeFrom: today,
+        timeTo: today,
+        kct: 'kct',
+        na: 'na',
     })
-    const handleSubmit = (data: SearchSchemaType) => {
-        setParams({
-            dateRange: data.dateRange,
-            timeFrom: data.timeFrom,
-            timeTo: data.timeTo,
-            kct: data.kct,
-            na: data.na,
+    const { mutate: updateSearchData } = useUpdateSearchQuery()
+    const handleSubmit = (formData: SearchSchemaType) => {
+        const { dateRange, timeFrom, timeTo, kct, na } = formData
+
+        updateSearchData({
+            dateRange,
+            timeFrom,
+            timeTo,
+            kct,
+            na,
         })
     }
 
@@ -53,6 +58,13 @@ export const OperationalStatistical = () => {
         return () => resetActiveEl()
     }, [])
 
+    if (isLoading && !data) return <LoadingComponent />
+    if (error)
+        return (
+            <div>
+                <h2>Error</h2>
+            </div>
+        )
     return (
         <div>
             <section className="flex gap-[12px] items-center justify-start">
@@ -63,7 +75,7 @@ export const OperationalStatistical = () => {
                             isActive: i === activeEl,
                         })),
                         TabStyle:
-                            'w-[fit-content] flex gap-[2px] bg-[#003CFF1A] p-[2px] rounded-[2px]',
+                            'w-[fit-content] flex gap-[2px] bg-[#003CFF1A] p-[2px] rounded-[2px] ',
                         styleProps: { rounded: 'sm' },
                     }}
                 />
@@ -79,11 +91,13 @@ export const OperationalStatistical = () => {
             {activeEl === 1 && (
                 <section className="isolate mt-[12px] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
                     <Form
-                        schema={SearchSchema}
+                        schema={searchSchema}
                         defaultValues={{
                             dateRange: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
                             timeFrom: new Date(),
                             timeTo: new Date(),
+                            kct: 'kct',
+                            na: 'na',
                         }}
                         onSubmit={handleSubmit}
                         className="flex gap-[4px]"

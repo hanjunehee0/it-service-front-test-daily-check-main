@@ -1,28 +1,28 @@
-import { TableComponent } from '@/components/common/table'
 import { Accordion } from '@/components/dashboard/accordion'
 import { BarChartComp } from '@/components/dashboard/charts/bar-chart'
 import { DataCard } from '@/components/dashboard/count-card'
+import { TableComponent } from '@/components/dashboard/table'
 import { dataThead, tBodyStyle } from '@/configs/dashboard.ts'
+import { useDataStore } from '@/stores/use-data-store.ts'
 import { ReturnSumData } from '@/types/components/dashboard/dashboard.ts'
 import { getBarCharts, getCountCards, getTableData } from '@/utils/dashboard/convert-data-type.ts'
 import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined'
-import { useDataStore } from '@/stores/use-data-store.ts'
-
 import 'swiper/css'
-import 'swiper/css/scrollbar'
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const ViewPage = () => {
-
     const { chargePointData, blinkChargingData } = useDataStore()
     const cloneBC: ReturnSumData[] = [...getCountCards({ chargePointData, blinkChargingData })]
     return (
         <>
-            <article className="mt-[12px] bg-[#ffffff] p-[12px]">
-                <Swiper modules={[Scrollbar]} scrollbar={{ hide: false, draggable: true }}
-
-                slidesPerView={6} spaceBetween={12}>
+            <article className="mt-[12px] px-[12px] bg-[#ffffff] custom-swiper-wrapper">
+                <Swiper
+                    modules={[Scrollbar]}
+                    scrollbar={{ hide: false, draggable: true }}
+                    slidesPerView={6}
+                    spaceBetween={12}
+                >
                     {cloneBC.map((item, i) => (
                         <SwiperSlide key={`${item.regDate}+${i}`}>
                             <DataCard

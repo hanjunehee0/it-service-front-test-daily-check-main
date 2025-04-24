@@ -23,11 +23,15 @@ export const DataCard = ({ regDate, total, success, failed, styles }: CountCards
                     <ul className="flex items-stretch text-[#000]">
                         <li className="w-[50%]">
                             <em className="block text-[10px]">성공</em>
-                            <strong className="block text-[16px] text-[#007100]">{success}</strong>
+                            <strong className="block mt-[5px] text-[16px] text-[#007100]">
+                                {success}
+                            </strong>
                         </li>
                         <li className="w-[50%]">
                             <em className="block text-[10px]">실패</em>
-                            <strong className="block text-[16px] text-[#f00]">{failed}</strong>
+                            <strong className="block mt-[5px] text-[16px] text-[#f00]">
+                                {failed}
+                            </strong>
                         </li>
                     </ul>
                 </dd>

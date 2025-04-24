@@ -2,6 +2,8 @@ import { ReactNode } from 'react'
 
 import { StyleProps, TabButtonTag } from '@/types/components/common/button.ts'
 
+type setType = 'blinkCharging' | 'chargePoint'
+
 export type Tabs = string | 'flex gap-2 bg-[#003CFF1A] p-[2px] rounded-[2px]'
 export interface TabMenuItem {
     dataProps: TabButtonTag[]
@@ -44,9 +46,11 @@ export interface OriginData {
         getNPost: number
         failed: number
     }
-    setType?: 'chargePoint' | 'blinkCharging'
+    setType?: setType
 }
-
+export interface OriginDataNDate extends Omit<OriginData, 'regDate'> {
+    regDate: Date
+}
 export interface BarData {
     regDate: string
     type: string

@@ -38,29 +38,8 @@ body {
     display: none;
 }
 
-
-.custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(100, 100, 100, 0.5);
-    border-radius: 9999px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-}
-
-.custom-scrollbar:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(100, 100, 100, 0.7);
-}
-
-.custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+form .react-datepicker__tab-loop {
+    margin-inline: -2px;
 }
 
 .loading-wrap {
@@ -113,6 +92,21 @@ body {
         clip-path: inset(0 0% 0 0);
     }
 }
+
+.custom-swiper-wrapper .swiper-wrapper {
+    padding-block: 12px;
+}
+.custom-swiper-wrapper .swiper-slide {
+    box-shadow: rgba(149, 157, 165, 0.1) 0 1px 3px;
+    transition: all 0.3s ease;
+}
+.custom-swiper-wrapper .swiper-slide:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0 4px 12px;
+    transition: all 0.3s ease;
+}
+.custom-swiper-wrapper .swiper-slide article:hover {
+    background-color: #eaeaff;
+}
 .swiper-scrollbar.swiper-scrollbar-horizontal {
     left: 0 !important;
     right: 0 !important;
@@ -121,4 +115,8 @@ body {
     .swiper-scrollbar-drag {
         opacity: 0.3;
     }
+}
+
+.scroll-wheel-stop.ps.ps--active-y {
+    overscroll-behavior-y: contain !important;
 }
