@@ -2,7 +2,7 @@ import { Controller, useFormContext } from 'react-hook-form'
 
 import { InputNumberProps } from '@/types/components/common/inputs.ts'
 
-export const InputNumber = ({ name, label, placeholder, style = '' }: InputNumberProps) => {
+export const InputNumber = ({ name, label, placeholder, style = '', minMax }: InputNumberProps) => {
     const {
         control,
         formState: { errors },
@@ -36,6 +36,8 @@ export const InputNumber = ({ name, label, placeholder, style = '' }: InputNumbe
                         type="text"
                         inputMode="numeric"
                         pattern="[0-9]*"
+                        minLength={minMax && minMax[0] ? minMax[0] : 1}
+                        maxLength={minMax && minMax[1] ? minMax[1] : 10}
                         placeholder={placeholder}
                         className={`${
                             style ||

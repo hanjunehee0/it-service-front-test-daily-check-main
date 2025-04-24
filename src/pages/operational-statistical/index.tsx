@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { DefaultValues } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router'
 
 import { IconButton } from '@/components/common/buttons/icon-button'
@@ -8,7 +9,7 @@ import { InputTimePicker } from '@/components/common/inputs/input-date-picker/in
 import { InputSelect } from '@/components/common/inputs/input-select'
 import { LoadingComponent } from '@/components/common/loading/index.tsx'
 import { TabMenu } from '@/components/dashboard/tab-menu'
-import { TabMenus, searchOptions, topFilter } from '@/configs/dashboard.ts'
+import { SEARCH_OPTIONS, TAB_MENUS, TOP_FILTER } from '@/constant/dashboard.ts'
 import { useSearchQuery, useUpdateSearchQuery } from '@/hooks/use-data-query'
 import { ViewPage } from '@/pages/operational-statistical/view-page'
 import { WritePage } from '@/pages/operational-statistical/write-page'
@@ -25,14 +26,14 @@ export const OperationalStatistical = () => {
             setActiveEl(p)
         }
     }
-    const tabMenuData: TabButtonTag[] = TabMenus.map((item) => ({
+    const tabMenuData: TabButtonTag[] = TAB_MENUS.map((item) => ({
         ...item,
         onClick: (p: number) => handleTabActive(p),
     }))
     const { id } = useParams()
     const navigate = useNavigate()
     const isSelectItem = (p?: string) => {
-        navigate(`/operational-stats/${p}`)
+        navigate(`/${p}`)
     }
     const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
     const today = new Date()
@@ -43,6 +44,13 @@ export const OperationalStatistical = () => {
         kct: 'kct',
         na: 'na',
     })
+    const defaultFormValues: DefaultValues<SearchSchemaType> = {
+        dateRange: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
+        timeFrom: new Date(),
+        timeTo: new Date(),
+        kct: 'kct',
+        na: 'na',
+    }
     const { mutate: updateSearchData } = useUpdateSearchQuery()
     const handleSubmit = (formData: SearchSchemaType) => {
         const { dateRange, timeFrom, timeTo, kct, na } = formData
@@ -57,7 +65,7 @@ export const OperationalStatistical = () => {
     }
     useEffect(() => {
         if (!id || id === ':id') {
-            navigate('operational-stats/cp-bc-stats', { replace: true })
+            navigate('/cp-bc-stats', { replace: true })
         }
     }, [id, navigate])
 
@@ -87,7 +95,7 @@ export const OperationalStatistical = () => {
                     }}
                 />
                 <InputSelect
-                    options={topFilter}
+                    options={TOP_FILTER}
                     onChanges={isSelectItem}
                     labelStyles={'flex-1 max-w-[660px]'}
                     styles={
@@ -97,15 +105,9 @@ export const OperationalStatistical = () => {
             </section>
             {activeEl === 1 && (
                 <section className="isolate mt-[12px] relative z-2 px-[12px] py-[6px] rounded-[2px] border border-[#00000033] bg-[#DADADA]">
-                    <Form
+                    <Form<SearchSchemaType>
                         schema={searchSchema}
-                        defaultValues={{
-                            dateRange: [new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), new Date()],
-                            timeFrom: new Date(),
-                            timeTo: new Date(),
-                            kct: 'kct',
-                            na: 'na',
-                        }}
+                        defaultValues={defaultFormValues}
                         onSubmit={handleSubmit}
                         className="flex gap-[4px]"
                     >
@@ -113,7 +115,7 @@ export const OperationalStatistical = () => {
                         <InputTimePicker name="timeFrom" />
                         <InputTimePicker name="timeTo" />
                         <InputSelect
-                            options={searchOptions.kct}
+                            options={SEARCH_OPTIONS.kct}
                             name={'kct'}
                             labelStyles={'flex-1  max-w-[100px]'}
                             styles={
@@ -121,7 +123,7 @@ export const OperationalStatistical = () => {
                             }
                         />
                         <InputSelect
-                            options={searchOptions.na}
+                            options={SEARCH_OPTIONS.na}
                             name={'na'}
                             labelStyles={'flex-1  max-w-[100px]'}
                             styles={

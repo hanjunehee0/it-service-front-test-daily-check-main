@@ -1,12 +1,11 @@
-import React from 'react'
-import { DefaultValues, FieldValues } from 'react-hook-form'
+import { PropsWithChildren } from 'react'
+import { DefaultValues, FieldValues, SubmitHandler } from 'react-hook-form'
 
-import { z } from 'zod'
+import { ZodSchema } from 'zod'
 
-export interface FormProps<T extends FieldValues> {
-    children: React.ReactNode
-    onSubmit: (data: T) => void
+export type FormProps<T extends FieldValues> = PropsWithChildren<{
+    onSubmit: SubmitHandler<T>
     defaultValues: DefaultValues<T>
-    schema: z.ZodType<T>
+    schema: ZodSchema<T>
     className?: string
-}
+}>
