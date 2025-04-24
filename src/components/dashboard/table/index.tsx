@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Scrollbar from 'react-perfect-scrollbar-z'
 import 'react-perfect-scrollbar-z/build/styles.css'
 
@@ -16,6 +17,18 @@ export const TableComponent = ({
     tBody: TableBodyRow[]
     bodyStyle: TableBodyStyle
 }) => {
+    const [isHoverCol, setIsHoverCol] = useState<number | null>(null)
+    const [isHoverRow, setIsHoverRow] = useState<number | null>(null)
+
+    const handleMouseOver = ({ rowIdx, colIdx }: { rowIdx: number; colIdx: number }) => {
+        setIsHoverCol(colIdx)
+        setIsHoverRow(rowIdx)
+    }
+    const handleMouseLeave = () => {
+        setIsHoverCol(null)
+        setIsHoverRow(null)
+    }
+
     return (
         <div>
             <table className={tHeader.tableStyle}>
@@ -26,10 +39,10 @@ export const TableComponent = ({
                         ))}
                 </colgroup>
                 <thead>
-                    {tHeader.rows.map((row, idx) => (
+                    {tHeader.rows.map((row, rowIdx) => (
                         <tr
                             className={tHeader.rowStyle ? `${tHeader.rowStyle}` : ''}
-                            key={`${row}'-'${idx}`}
+                            key={`${row}'-'${rowIdx}`}
                         >
                             {row.map((th, idx) => (
                                 <th
@@ -60,16 +73,23 @@ export const TableComponent = ({
                         suppressScrollY: `${tBody.length > 5}` ? false : true,
                     }}
                 >
-                    {tBody.map((row, idx) => (
-                        <tr key={`row-${idx}`} className="mt-[-1px]">
+                    {tBody.map((row, rowIdx) => (
+                        <tr
+                            key={`row-${rowIdx}`}
+                            className={`${rowIdx === isHoverRow ? 'hover-row' : ''} mt-[-1px]'`}
+                        >
                             {Object.entries(row).map(([keys, item], colIdx) => (
                                 <td
-                                    className={`${bodyStyle.tdStyle ? bodyStyle.tdStyle : ''} ${keys === 'regDate' ? ' text-left ' : 'text-right'} ${keys === 'failed' ? 'bg-[#FFE6E6] text-[#FF0000] ' : ''}
-
-                                    `}
+                                    className={`${bodyStyle.tdStyle ? bodyStyle.tdStyle : ''} ${keys === 'regDate' ? ' text-left ' : 'text-right'} ${keys === 'failed' ? 'bg-[#FFE6E6] text-[#FF0000] ' : ''} ${colIdx === isHoverCol ? 'hover-col' : ''}`}
                                     key={`td-${colIdx}`}
                                     style={{
                                         width: tHeader.colWidths ? tHeader.colWidths[colIdx] : '',
+                                    }}
+                                    onMouseEnter={() => {
+                                        handleMouseOver({ rowIdx, colIdx })
+                                    }}
+                                    onMouseLeave={() => {
+                                        handleMouseLeave()
                                     }}
                                 >
                                     {item}

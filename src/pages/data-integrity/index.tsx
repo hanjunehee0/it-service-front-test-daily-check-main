@@ -1,3 +1,3 @@
 export const DataIntegrity = () => {
-    return <div>DataIntegrity</div>
+    return <div className="flex h-full justify-center items-center font-bold text-[22px]">DataIntegrity</div>
 }

@@ -7,7 +7,7 @@ export const InputSelect = ({
     labelValue,
     options,
     styles,
-    onChanges,
+    onChanges = () => {},
     name,
     labelStyles,
 }: SelectTag) => {

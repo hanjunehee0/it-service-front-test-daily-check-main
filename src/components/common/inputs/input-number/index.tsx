@@ -24,7 +24,9 @@ export const InputNumber = ({ name, label, placeholder, style = '' }: InputNumbe
 
     return (
         <div className="flex align-top gap-[4px]">
-            <label className="text-[14px] py-[4px] text-[#333] content-end flex-auto max-w-[100px]">{label}</label>
+            <label className="text-[14px] py-[4px] text-[#333] content-end flex-auto max-w-[100px]">
+                {label}
+            </label>
             <Controller
                 name={name}
                 control={control}
@@ -37,7 +39,7 @@ export const InputNumber = ({ name, label, placeholder, style = '' }: InputNumbe
                         placeholder={placeholder}
                         className={`${
                             style ||
-                            'min-w-[100px] px-[12px] py-[6px] border border-[#ccc] bg-[#fff] rounded-[2px] text-[12px] text-[#333]'
+                            'min-w-[100px] px-[12px] py-[6px] border border-[#ccc] bg-[#fff] rounded-[2px] text-[12px] text-right text-[#333]'
                         }`}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             const value = e.target.value.replace(/[^0-9]/g, '')

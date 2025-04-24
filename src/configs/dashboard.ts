@@ -20,42 +20,43 @@ export const TabMenus: TabButtonTag[] = [
 
 export const topFilter: Options[] = [
     {
-        value: 'CP_BC_STATS',
+        value: 'cp-bc-stats',
         label: 'Charge Point, Blink Charging 요청 Put/Delete/Patch별 성공/실패 수 및 총 인입량',
     },
     {
-        value: 'PUT_DELETE_PATCH_SCHEDULER',
+        value: 'put-delete-patch-scheduler',
         label: 'Put/delete/patch 처리 스케줄러 성공/실패 수 및 총 인입량',
     },
     {
-        value: 'FETCH_MOVE_DAILY',
+        value: 'fetch-move-daily',
         label: 'fetchAllStation 이후 moveStationDaily 성공 / 실패 여부 확인',
     },
     {
-        value: 'TARIFF_STATION_HOURLY',
+        value: 'tariff-station-hourly',
         label: '시간별 tariff / station 수집 여부 확인',
     },
     {
-        value: 'ERROR_LOGS',
+        value: 'error-logs',
         label: ' 실패 에러 로그 확인',
     },
     {
-        value: 'LOGS',
+        value: 'logs',
         label: '로그 확인',
     },
     {
-        value: 'CP_COLLECTION_COUNTS',
+        value: 'cp-collection-counts',
         label: 'CP사별 수집된 개수 확인',
     },
     {
-        value: 'COLLECTION_COUNTS',
+        value: 'collection-counts',
         label: '각 collection 별 개수 확인 (staion, charger, tariff)',
     },
     {
-        value: 'CP_CONVERTER_ERROR',
+        value: 'cp-converter-error',
         label: 'CP사 Converter 에러',
     },
 ]
+
 
 export const searchOptions = {
     na: [
