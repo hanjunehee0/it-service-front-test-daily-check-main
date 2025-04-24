@@ -1,12 +1,15 @@
 import * as React from 'react'
+import { NavLinkProps } from 'react-router'
 
 export type Variant = 'primary' | 'secondary' | 'outline'
 export type FontType = 'type1' | 'type2' | 'noBack'
 export type Level = 'sm' | 'md' | 'lg'
 export type ButtonType = 'button' | 'reset' | 'submit'
 export type IconBtnPosition = 'left' | 'right' | 'full'
+
 export interface AnchorTag {
     to: string
+    style?: NavLinkProps['className']
     label: string
 }
 

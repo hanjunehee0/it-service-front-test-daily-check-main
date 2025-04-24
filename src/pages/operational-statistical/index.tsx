@@ -32,7 +32,7 @@ export const OperationalStatistical = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const isSelectItem = (p?: string) => {
-        navigate(`/${p}`)
+        navigate(`/operational-stats/${p}`)
     }
     const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
     const today = new Date()
@@ -57,7 +57,7 @@ export const OperationalStatistical = () => {
     }
     useEffect(() => {
         if (!id || id === ':id') {
-            navigate('/cp-bc-stats', { replace: true })
+            navigate('operational-stats/cp-bc-stats', { replace: true })
         }
     }, [id, navigate])
 

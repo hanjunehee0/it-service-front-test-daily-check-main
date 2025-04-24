@@ -1,4 +1,4 @@
-import { RouteObject, createBrowserRouter } from 'react-router'
+import { Navigate, RouteObject, createBrowserRouter } from 'react-router'
 
 import { MainLayout } from '@/layouts/main-layout'
 import { DataIntegrity } from '@/pages/data-integrity'
@@ -10,17 +10,26 @@ const routes: RouteObject[] = [
         element: <MainLayout />,
         children: [
             {
-                path: '/:id',
-                handle: { crumb: 'OperationalStatistical Page', title: 'Operational Statistical' },
-                element: <OperationalStatistical />,
+                index: true,
+                element: <Navigate to="/operational-stats" />,
             },
             {
-                path: '/DI',
+                path: '/operational-stats',
+                handle: { crumb: 'OperationalStatistical Page', title: 'Operational Statistical' },
+                element: <OperationalStatistical />,
+                children: [
+                    {
+                        path: ':id',
+                    },
+                ],
+            },
+            {
+                path: '/data-integrity',
                 handle: { crumb: 'DataIntegrity', title: 'Data Integrity' },
                 element: <DataIntegrity />,
             },
             {
-                path: '/RV',
+                path: '/response-visualization',
                 handle: { crumb: 'ResponseVisualization Page', title: 'Response Visualization' },
                 element: <ResponseVisualization />,
             },

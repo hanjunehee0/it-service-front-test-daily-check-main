@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router'
-
+import { Anchor } from '@/components/common/buttons/anchor/index.tsx'
 import { router } from '@/router.tsx'
 
 export const HeaderNav = () => {
@@ -10,14 +9,13 @@ export const HeaderNav = () => {
                 {menus[0].children &&
                     menus[0].children.map((menu, idx) => (
                         <li key={`${menu.path + '-' + idx}`}>
-                            <NavLink
+                            <Anchor
                                 to={menu.path ? menu.path : ''}
-                                className={({ isActive, isPending }) => {
+                                style={({ isActive, isPending }) => {
                                     return isActive && !isPending ? 'text-[#003cff]' : ''
                                 }}
-                            >
-                                {menu.handle && menu.handle.title ? menu.handle.title : ''}
-                            </NavLink>
+                                label={menu.handle && menu.handle.title ? menu.handle.title : ''}
+                            />
                         </li>
                     ))}
             </ul>
